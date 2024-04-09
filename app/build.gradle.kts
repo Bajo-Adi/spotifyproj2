@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.spotifyproj2"
-        minSdk = 24
+        minSdk = 33
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
