@@ -202,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
     }
 
+
     /**
      * Gets the redirect Uri for Spotify
      *
