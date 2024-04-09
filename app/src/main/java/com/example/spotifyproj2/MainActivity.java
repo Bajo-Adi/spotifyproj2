@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize the views
         tokenTextView = (TextView) findViewById(R.id.token_text_view);
-        codeTextView = (TextView) findViewById(R.id.code_text_view);
-        profileTextView = (TextView) findViewById(R.id.response_text_view);
+//        codeTextView = (TextView) findViewById(R.id.code_text_view);
+//        profileTextView = (TextView) findViewById(R.id.response_text_view);
 
         // Initialize the buttons
         Button tokenBtn = (Button) findViewById(R.id.token_btn);
-        Button codeBtn = (Button) findViewById(R.id.code_btn);
-        Button profileBtn = (Button) findViewById(R.id.profile_btn);
+//        Button codeBtn = (Button) findViewById(R.id.code_btn);
+//        Button profileBtn = (Button) findViewById(R.id.profile_btn);
         Button homeBtn = (Button) findViewById(R.id.home_button);
         Button newAccBtn = (Button) findViewById(R.id.new_account_button);
 
@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
             getToken();
         });
 
-        codeBtn.setOnClickListener((v) -> {
-            getCode();
-        });
-
-        profileBtn.setOnClickListener((v) -> {
-            onGetUserProfileClicked();
-        });
+//        codeBtn.setOnClickListener((v) -> {
+//            getCode();
+//        });
+//
+//        profileBtn.setOnClickListener((v) -> {
+//            onGetUserProfileClicked();
+//        });
 
     }
 
