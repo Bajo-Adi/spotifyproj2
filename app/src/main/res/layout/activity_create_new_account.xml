@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/textViewCreateNewAccountHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create new account"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Instruction -->
+    <TextView
+        android:id="@+id/textViewInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please fill out the following fields"
+        android:textSize="18sp"
+        android:layout_below="@id/textViewCreateNewAccountHeader"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Name Label -->
+    <TextView
+        android:id="@+id/textViewNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textSize="18sp"
+        android:layout_below="@id/textViewInstruction"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Name Input Box -->
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewNameLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter your name"
+        android:inputType="text"/>
+
+    <!-- Username Label -->
+    <TextView
+        android:id="@+id/textViewUsernameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Username Input Box -->
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewUsernameLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter your username"
+        android:inputType="text"/>
+
+    <!-- Password Label -->
+    <TextView
+        android:id="@+id/textViewPasswordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextUsername"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Password Input Box -->
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPasswordLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter your password"
+        android:inputType="textPassword"/>
+
+    <!-- Re-type Password Label -->
+    <TextView
+        android:id="@+id/textViewReTypePasswordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Re-type Password:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextPassword"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Re-type Password Input Box -->
+    <EditText
+        android:id="@+id/editTextReTypePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewReTypePasswordLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Re-type your password"
+        android:inputType="textPassword"/>
+
+    <!-- Spotify Username Label -->
+    <TextView
+        android:id="@+id/textViewSpotifyUsernameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spotify Username:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextReTypePassword"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Spotify Username Input Box -->
+    <EditText
+        android:id="@+id/editTextSpotifyUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewSpotifyUsernameLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter your Spotify username"
+        android:inputType="text"/>
+
+    <!-- Spotify Password Label -->
+    <TextView
+        android:id="@+id/textViewSpotifyPasswordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spotify Password:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextSpotifyUsername"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Spotify Password Input Box -->
+    <EditText
+        android:id="@+id/editTextSpotifyPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewSpotifyPasswordLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter your Spotify password"
+        android:inputType="textPassword"/>
+
+    <!-- Create Account Button -->
+    <Button
+        android:id="@+id/buttonCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextSpotifyPassword"
+        android:layout_marginTop="1dp"
+        android:text="Create Account" />
+
+</RelativeLayout>

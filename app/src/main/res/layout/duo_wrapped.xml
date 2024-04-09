@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_grey">
+
+
+    <!-- Create New Duo Wrapped with Friend TextView -->
+
+    <!-- Enter Friend's Username for Wrapped TextView -->
+
+    <!-- EditText for Friend's Username -->
+
+    <!-- Button for Making Duo Wrapped -->
+
+    <TextView
+        android:id="@+id/create_duo_wrapped_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Create New Duo Wrapped with A Friend!"
+        android:textColor="@android:color/white"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/enter_username_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Enter Friend's Username!"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/friend_username_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/white"
+        android:hint="Username"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_username_text_view" />
+
+    <Button
+        android:id="@+id/make_duo_wrapped_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/rounded_button"
+        android:text="Make Duo Wrapped"
+        android:textColor="@android:color/white"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/friend_username_edit_text"
+        app:layout_constraintVertical_bias="0.063" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

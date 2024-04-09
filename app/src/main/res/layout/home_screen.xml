@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_grey"
+    tools:context=".HomeScreen">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="185dp"
+        android:layout_height="58dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/welcome"
+        android:textColor="@color/white"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/new_wrapped"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/generate_new_wrapped"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:cornerRadius="20dp"
+        app:iconPadding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/new_duo_wrapped"
+        android:layout_width="350dp"
+        android:layout_height="81dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/new_duo_wrapped"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:cornerRadius="20dp"
+        app:iconPadding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.521" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/past_wrappeds"
+        android:layout_width="350dp"
+        android:layout_height="84dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/view_past_wrapped"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:cornerRadius="20dp"
+        app:iconPadding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/settings_btn"
+        android:layout_width="101dp"
+        android:layout_height="42dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/purple_200"
+        android:drawableStart="@drawable/ic_action_name"
+        android:text="Settings"
+        android:textColor="@color/dark_grey"
+        android:textSize="12sp"
+        app:icon="@drawable/ic_action_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.966" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

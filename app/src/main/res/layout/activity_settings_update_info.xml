@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Change Name Label -->
+    <TextView
+        android:id="@+id/textViewChangeNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change name:"
+        android:textSize="18sp"
+        android:layout_below="@id/textViewHeader"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Change Name Input Box -->
+    <EditText
+        android:id="@+id/editTextChangeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewChangeNameLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter new name"
+        android:inputType="text"/>
+
+    <!-- Change User Label -->
+    <TextView
+        android:id="@+id/textViewChangeUserLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change user:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextChangeName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Change User Input Box -->
+    <EditText
+        android:id="@+id/editTextChangeUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewChangeUserLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter new user"
+        android:inputType="text"/>
+
+    <!-- Change Password Label -->
+    <TextView
+        android:id="@+id/textViewChangePasswordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change password:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextChangeUser"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Change Password Input Box -->
+    <EditText
+        android:id="@+id/editTextChangePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewChangePasswordLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter new password"
+        android:inputType="textPassword"/>
+
+    <!-- Submit Button -->
+
+    <!-- Delete Account Button -->
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextChangePassword"
+        android:layout_marginTop="-8dp"
+        android:text="Submit" />
+
+    <Button
+        android:id="@+id/buttonDeleteAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Account"
+        android:layout_below="@id/buttonSubmit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>

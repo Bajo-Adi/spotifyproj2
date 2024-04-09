@@ -1,0 +1,285 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_grey">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="96dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="5dp"
+        android:text="User1 and User2's Duo Wrapped!"
+        android:textColor="@color/purple_200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/duoSongs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="568dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="You share 4 Favorite Songs Together"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/duoArtists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="364dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="You share 4 Favorite Artists Together"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/duoAlblums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="468dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="You share 3 Favorite Albums Together"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/duoSongTogether"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="144dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="The song that brings you together is: XXXXXXX"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/duoSimilarityPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="32dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="You Have A __% Similarity Score in Music Taste!"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/duosong1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="372dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoSongs" />
+
+    <TextView
+        android:id="@+id/duosong2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="276dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="2"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoSongs" />
+
+    <TextView
+        android:id="@+id/duosong3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="168dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="3"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoSongs" />
+
+    <TextView
+        android:id="@+id/duosong4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="68dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="4"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoSongs" />
+
+
+    <TextView
+        android:id="@+id/duoAlblum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="340dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoAlblums" />
+
+    <TextView
+        android:id="@+id/duoAlblum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="220dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="2"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoAlblums" />
+
+    <TextView
+        android:id="@+id/duoAlblum3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="96dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="3"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoAlblums" />
+
+    <TextView
+        android:id="@+id/duoAlblum4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="68dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="4"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoArtists" />
+
+
+    <TextView
+        android:id="@+id/duoArtist1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="372dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoArtists" />
+
+    <TextView
+        android:id="@+id/duoArtist2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="276dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="2"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoArtists" />
+
+    <TextView
+        android:id="@+id/duoArtist3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="168dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="3"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoArtists" />
+
+    <TextView
+        android:id="@+id/duoArtist4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="68dp"
+        android:layout_weight="1"
+        android:paddingTop="15dp"
+        android:text="4"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duoArtists" />
+
+
+    <!-- Add additional TextViews or RecyclerViews for displaying top songs, artists, and albums -->
+</androidx.constraintlayout.widget.ConstraintLayout>
