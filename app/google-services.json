@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "997315291544",
+    "project_id": "cs2340project2",
+    "storage_bucket": "cs2340project2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997315291544:android:fe7ca9f8de30297e3c63ed",
+        "android_client_info": {
+          "package_name": "com.example.project2_spotify_cs2340"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkkUji0VaQZP1jkZO6H0W9-H-7CQ6yV7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997315291544:android:bcde7c31499a567d3c63ed",
+        "android_client_info": {
+          "package_name": "com.example.spotifyproj2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkkUji0VaQZP1jkZO6H0W9-H-7CQ6yV7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
