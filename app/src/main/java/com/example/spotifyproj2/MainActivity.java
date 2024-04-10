@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
 import com.spotify.sdk.android.auth.AuthorizationResponse;
@@ -19,6 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private Call mCall;
 
     private TextView tokenTextView, codeTextView, profileTextView;
+
+    private static final String SCOPES = "user-read-recently-played,user-library-modify,user-read-email,user-read-private";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Create a request to get the user profile
-        final Request request = new Request.Builder()
+        Request request = new Request.Builder()
                 .url("https://api.spotify.com/v1/me")
                 .addHeader("Authorization", "Bearer " + mAccessToken)
                 .build();
@@ -177,6 +183,90 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //fetching spotify user id
+    public void fetchAndStoreSpotifyUserId(String token) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://api.spotify.com/v1/me")
+                .addHeader("Authorization", "Bearer " + token)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                // Handle failure
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.body().string());
+                        String userId = jsonObject.optString("id", "");
+                        // Store userId in Firestore
+                        storeSpotifyUserIdInFirestore(userId);
+                    } catch (JSONException e) {
+                        // Handle JSON parsing error
+                    }
+                }
+            }
+        });
+    }
+
+    private void storeSpotifyUserIdInFirestore(String userId) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("spotifyUserId", userId);
+
+        db.collection("spotifyUsers").document(userId) // Use userID as document ID
+                .set(userData)
+                .addOnSuccessListener(aVoid -> Log.d("Firestore", "User ID successfully written!"))
+                .addOnFailureListener(e -> Log.e("Firestore", "Error writing user ID", e));
+    }
+
+
+    //artist data
+    public void artistRequest(String token) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://api.spotify.com/v1/artists/41X1TR6hrK8Q2ZCpp2EqCz")
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Accept", "application/json")
+                .addHeader("Content-Type", "application/json")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                // Handle failure
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.body().string());
+                        // Process artist data, then store in Firestore
+                        storeArtistDataInFirestore(jsonObject);
+                    } catch (JSONException e) {
+                        // Handle JSON parsing error
+                    }
+                }
+            }
+        });
+    }
+
+    private void storeArtistDataInFirestore(JSONObject artistData) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String userId = artistData.optString("id", ""); // Assume you have user ID here
+
+        db.collection("spotifyUsers").document(userId)
+                .update("artistData", artistData.toString())
+                .addOnSuccessListener(aVoid -> Log.d("Firestore", "Artist data successfully written!"))
+                .addOnFailureListener(e -> Log.e("Firestore", "Error writing artist data", e));
+    }
+
+
     /**
      * Creates a UI thread to update a TextView in the background
      * Reduces UI latency and makes the system perform more consistently
@@ -197,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
     private AuthorizationRequest getAuthenticationRequest(AuthorizationResponse.Type type) {
         return new AuthorizationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
                 .setShowDialog(false)
-                .setScopes(new String[] { "user-read-email" }) // <--- Change the scope of your requested token here
+                .setScopes(new String[] { SCOPES }) // <--- Change the scope of your requested token here
                 .setCampaign("your-campaign-token")
                 .build();
     }
