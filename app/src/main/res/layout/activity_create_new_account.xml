@@ -1,169 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/spotify_black">
 
-    <!-- Header -->
+    <!-- Create Account Header -->
+
+    <!-- Name Input Field -->
     <TextView
-        android:id="@+id/textViewCreateNewAccountHeader"
+        android:id="@+id/tvCreateAccountHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create new account"
+        android:padding="8dp"
+        android:text="Create Account"
+        android:textColor="@color/dark_green"
         android:textSize="24sp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:fontFamily="@font/spotify"
+        android:textStyle="bold" />
 
-    <!-- Instruction -->
     <TextView
-        android:id="@+id/textViewInstruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please fill out the following fields"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewCreateNewAccountHeader"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:text="Name"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Name Label -->
-    <TextView
-        android:id="@+id/textViewNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name:"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewInstruction"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Name Input Box -->
-    <EditText
-        android:id="@+id/editTextName"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewNameLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter your name"
-        android:inputType="text"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
 
-    <!-- Username Label -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCreateName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your name"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Username Input Field -->
     <TextView
-        android:id="@+id/textViewUsernameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username:"
-        android:textSize="18sp"
-        android:layout_below="@id/editTextName"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Username Input Box -->
-    <EditText
         android:id="@+id/editTextUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewUsernameLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter your username"
-        android:inputType="text"/>
-
-    <!-- Password Label -->
-    <TextView
-        android:id="@+id/textViewPasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password:"
-        android:textSize="18sp"
-        android:layout_below="@id/editTextUsername"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:text="Username"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Password Input Box -->
-    <EditText
-        android:id="@+id/editTextPassword"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewPasswordLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter your password"
-        android:inputType="textPassword"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
 
-    <!-- Re-type Password Label -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCreateUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your username"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email Input Field -->
+        <TextView
+            android:id="@+id/editTextEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email ID"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:paddingBottom="8dp"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCreateEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your username"
+                android:fontFamily="@font/spotify"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Input Field -->
     <TextView
-        android:id="@+id/textViewReTypePasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Re-type Password:"
-        android:textSize="18sp"
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:text="Password"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Re-type Password Input Box -->
-    <EditText
-        android:id="@+id/editTextReTypePassword"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewReTypePasswordLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Re-type your password"
-        android:inputType="textPassword"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
 
-    <!-- Spotify Username Label -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCreatePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Re-type Password Input Field -->
     <TextView
-        android:id="@+id/textViewSpotifyUsernameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spotify Username:"
-        android:textSize="18sp"
-        android:layout_below="@id/editTextReTypePassword"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:text="Re-type Password"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Spotify Username Input Box -->
-    <EditText
-        android:id="@+id/editTextSpotifyUsername"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewSpotifyUsernameLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter your Spotify username"
-        android:inputType="text"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
 
-    <!-- Spotify Password Label -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRetypePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Re-type your password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Spotify Username Input Field -->
     <TextView
-        android:id="@+id/textViewSpotifyPasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spotify Password:"
-        android:textSize="18sp"
-        android:layout_below="@id/editTextSpotifyUsername"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:text="Spotify Username"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Spotify Password Input Box -->
-    <EditText
-        android:id="@+id/editTextSpotifyPassword"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewSpotifyPasswordLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter your Spotify password"
-        android:inputType="textPassword"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSpotifyUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Spotify username"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Spotify Password Input Field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spotify Password"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="16dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSpotifyPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Spotify password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Create Account Button -->
-    <Button
-        android:id="@+id/buttonCreateAccount"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextSpotifyPassword"
-        android:layout_marginTop="1dp"
-        android:text="Create Account" />
-
-</RelativeLayout>
+        android:text="Create Account"
+        android:backgroundTint="@color/dark_green"
+        android:background="@drawable/rounded_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/spotify"
+        android:textStyle="bold"/>
+    </LinearLayout>
+</ScrollView>

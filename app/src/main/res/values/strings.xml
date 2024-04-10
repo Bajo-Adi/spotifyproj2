@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">spotifyproj2</string>
+    <string name="app_name">PROJECT2_SPOTIFY_CS2340</string>
     <string name="welcome">Welcome!</string>
     <string name="generate_new_wrapped">Generate New Wrapped</string>
     <string name="new_duo_wrapped">new duo-wrapped</string>

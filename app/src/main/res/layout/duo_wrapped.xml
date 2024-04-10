@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey">
+    android:background="@color/spotify_black">
 
 
     <!-- Create New Duo Wrapped with Friend TextView -->
@@ -19,10 +19,14 @@
         android:id="@+id/create_duo_wrapped_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/spotify"
         android:text="Create New Duo Wrapped with A Friend!"
-        android:textColor="@android:color/white"
+        android:textColor="@color/dark_green"
+        android:gravity = "center"
+        android:textStyle="bold"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -35,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:text="Enter Friend's Username!"
+        android:fontFamily="@font/spotify"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +53,8 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:background="@android:color/white"
+        android:background="@drawable/round_edit_text"
+        android:fontFamily="@font/spotify"
         android:hint="Username"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,11 +65,10 @@
         android:id="@+id/make_duo_wrapped_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/dark_green"
         android:text="Make Duo Wrapped"
         android:textColor="@android:color/white"
-
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

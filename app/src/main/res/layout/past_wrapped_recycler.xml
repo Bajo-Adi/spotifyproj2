@@ -7,14 +7,17 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="0dp"
     android:layout_marginEnd="16dp"
+    android:clickable="true"
     android:layout_marginBottom="0dp">
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="@color/purple_200"
+        app:cardBackgroundColor="@color/dark_green"
+        android:clickable="true"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +32,8 @@
                 android:id="@+id/Date"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:clickable="true"
+                android:fontFamily="@font/spotify"
                 android:gravity="center"
                 android:text="Date"
                 android:textColor="@color/white"

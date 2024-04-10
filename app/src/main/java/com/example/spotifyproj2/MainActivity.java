@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         Button tokenBtn = (Button) findViewById(R.id.token_btn);
 //        Button codeBtn = (Button) findViewById(R.id.code_btn);
 //        Button profileBtn = (Button) findViewById(R.id.profile_btn);
-        Button homeBtn = (Button) findViewById(R.id.home_button);
+        Button homeBtn = (Button) findViewById(R.id.login_button);
         Button newAccBtn = (Button) findViewById(R.id.new_account_button);
 
         // Set the click listeners for the buttons
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Replace MainActivity.class with the class of the activity you want to navigate to
-                Intent intent = new Intent(MainActivity.this, HomeScreen.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

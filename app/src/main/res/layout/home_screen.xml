@@ -4,29 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
+    android:background="@color/spotify_black"
     tools:context=".HomeScreen">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="185dp"
         android:layout_height="58dp"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:fontFamily="@font/spotify"
         android:text="@string/welcome"
         android:textColor="@color/white"
-        android:textSize="45sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.026"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/new_wrapped"
         android:layout_width="350dp"
         android:layout_height="75dp"
         android:background="@drawable/rounded_button"
+        android:fontFamily="@font/spotify"
         android:text="@string/generate_new_wrapped"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -43,6 +43,7 @@
         android:layout_width="350dp"
         android:layout_height="81dp"
         android:background="@drawable/rounded_button"
+        android:fontFamily="@font/spotify"
         android:text="@string/new_duo_wrapped"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -59,6 +60,7 @@
         android:layout_width="350dp"
         android:layout_height="84dp"
         android:background="@drawable/rounded_button"
+        android:fontFamily="@font/spotify"
         android:text="@string/view_past_wrapped"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -75,17 +77,28 @@
         android:layout_width="101dp"
         android:layout_height="42dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/ic_action_name"
         android:text="Settings"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/white"
         android:textSize="12sp"
         app:icon="@drawable/ic_action_name"
+        android:fontFamily="@font/spotify"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.966" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="76dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="168dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/spotify_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

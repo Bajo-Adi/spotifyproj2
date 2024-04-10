@@ -1,102 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/spotify_black">
 
-    <!-- Header -->
+    <!-- Settings Header -->
     <TextView
-        android:id="@+id/textViewHeader"
+        android:id="@+id/tvSettingsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:text="Settings"
+        android:textColor="@color/white"
         android:textSize="24sp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:textStyle="bold"
+        android:fontFamily="@font/spotify"/>
 
-    <!-- Change Name Label -->
+    <!-- Name Label -->
     <TextView
-        android:id="@+id/textViewChangeNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change name:"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewHeader"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:text="Name"
+        android:textSize="16sp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Change Name Input Box -->
-    <EditText
-        android:id="@+id/editTextChangeName"
+    <!-- Name Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewChangeNameLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter new name"
-        android:inputType="text"/>
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
 
-    <!-- Change User Label -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your name"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Username Label -->
     <TextView
-        android:id="@+id/textViewChangeUserLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change user:"
-        android:textSize="18sp"
-        android:layout_below="@id/editTextChangeName"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:text="Username"
+        android:textSize="16sp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Change User Input Box -->
-    <EditText
-        android:id="@+id/editTextChangeUser"
+    <!-- Username Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewChangeUserLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter new user"
-        android:inputType="text"/>
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
 
-    <!-- Change Password Label -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your username"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Label -->
     <TextView
-        android:id="@+id/textViewChangePasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change password:"
-        android:textSize="18sp"
-        android:layout_below="@id/editTextChangeUser"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:text="Password"
+        android:textSize="16sp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
 
-    <!-- Change Password Input Box -->
-    <EditText
-        android:id="@+id/editTextChangePassword"
+    <!-- Password Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewChangePasswordLabel"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter new password"
-        android:inputType="textPassword"/>
+        android:paddingBottom="16dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
 
-    <!-- Submit Button -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Delete Account Button -->
-    <Button
-        android:id="@+id/buttonSubmit"
-        android:layout_width="wrap_content"
+    <!-- Action Buttons Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextChangePassword"
-        android:layout_marginTop="-8dp"
-        android:text="Submit" />
+        android:orientation="horizontal"
+        android:paddingTop="24dp"
+        android:gravity="center"
+        android:padding="8dp">
 
-    <Button
-        android:id="@+id/buttonDeleteAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Account"
-        android:layout_below="@id/buttonSubmit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        <!-- Submit Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:layout_weight="1"
+            android:text="Submit"
+            android:backgroundTint="@color/dark_green"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/spotify"
+            android:textStyle="bold"/> <!-- Increased margin for spacing -->
 
-</RelativeLayout>
+        <!-- Delete Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:layout_weight="1"
+            android:text="Delete"
+            android:backgroundTint="@color/dark_green"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/spotify"
+            android:textStyle="bold"/> <!-- Increased margin for spacing -->
+
+
+    </LinearLayout>
+</LinearLayout>

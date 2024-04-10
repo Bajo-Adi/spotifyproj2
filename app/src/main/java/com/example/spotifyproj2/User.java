@@ -3,7 +3,7 @@ package com.example.spotifyproj2;
 public class User {
     public String birthdate;
     public String country;
-    public String display_name;
+    public String displayName;
     public String email;
     public String id;
 
@@ -19,12 +19,12 @@ public class User {
         this.country = country;
     }
 
-    public String getDisplay_name() {
-        return display_name;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setDisplay_name(String display_name) {
-        this.display_name = display_name;
+    public void setDisplayName(String display_name) {
+        this.displayName = display_name;
     }
 
     public String getEmail() {
