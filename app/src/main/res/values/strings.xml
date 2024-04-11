@@ -4,4 +4,11 @@
     <string name="generate_new_wrapped">Generate New Wrapped</string>
     <string name="new_duo_wrapped">new duo-wrapped</string>
     <string name="view_past_wrapped">View Past Wrapped</string>
+
+    <string-array name="dropdown_options">
+        <item>1 month</item>
+        <item>6 months</item>
+        <item>1 year</item>
+    </string-array>
+
 </resources>
