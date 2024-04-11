@@ -1,6 +1,8 @@
 package com.example.spotifyproj2;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
@@ -104,12 +106,19 @@ public class SpotifyAuthorization extends AppCompatActivity {
         // Check which request code is present (if any)
         if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
             mAccessToken = response.getAccessToken();
+            saveToken(mAccessToken);
             setTextAsync(mAccessToken, tokenTextView);
 
         } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
             mAccessCode = response.getCode();
             setTextAsync(mAccessCode, codeTextView);
         }
+    }
+    private void saveToken(String token) {
+        SharedPreferences sharedPreferences = getSharedPreferences("SpotifyPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("accessToken", token);
+        editor.apply();
     }
 
     /**
