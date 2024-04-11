@@ -28,6 +28,10 @@
             android:exported="false" />
         <activity android:name=".HomeScreen"
             android:exported="false" />
+        <activity android:name=".DuoWrappedDisplay"
+            android:exported="false" />
+        <activity android:name=".SpotifyAuthorization"
+            android:exported="false" />
         <!-- com.example.project2_spotify_cs2340.MainActivity declaration -->
         <activity
             android:name=".MainActivity"
@@ -41,7 +45,7 @@
                 <!-- Must be the same in com.example.project2_spotify_cs2340.MainActivity, Gradle, and Spotify Dashboard! -->
 
                 <data
-                    android:scheme="com.example.spotifyproj2"
+                    android:scheme="spotifyproj2"
                     android:host= "auth" />
             </intent-filter>
         </activity>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spotify_auth"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SpotifyAuthorization"
+    android:background="@color/spotify_black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/token_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Token:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/spotify"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/token_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request Token"
+            android:backgroundTint="@color/dark_green"
+            android:fontFamily="@font/spotify"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/code_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Code:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/spotify"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/code_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request Code"
+            android:backgroundTint="@color/dark_green"
+            android:fontFamily="@font/spotify"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/response_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"
+            android:layout_marginTop="16dp"
+            tools:text="Line 1\nLine 2\nLine 3" />
+
+        <Button
+            android:id="@+id/profile_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Get User Profile"
+            android:backgroundTint="@color/dark_green"
+            android:fontFamily="@font/spotify"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

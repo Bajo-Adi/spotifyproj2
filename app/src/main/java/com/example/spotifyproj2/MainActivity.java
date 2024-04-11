@@ -81,27 +81,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        tokenBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                authorize.getToken(MainActivity.this, new SpotifyAuthorization.AuthorizationCallback() {
-                    @Override
-                    public void onAuthorizationStarted() {
-                        Log.d("LOGIN","Login Start");
-                    }
-
-                    @Override
-                    public void onAuthorizationCompleted(String accessToken) {
-                        Log.d("LOGIN","Login Successful");
-                    }
-
-                    @Override
-                    public void onAuthorizationFailed(String errorMessage) {
-                        Log.e("LOGIN",errorMessage);
-                    }
-                });
-            }
-        });
     }
 }
 
@@ -112,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
 //        profileBtn.setOnClickListener((v) -> {
 //            onGetUserProfileClicked();
 //        });
+
+
+
 
 
 

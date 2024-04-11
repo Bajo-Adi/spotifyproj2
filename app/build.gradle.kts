@@ -9,11 +9,11 @@ android {
 
     defaultConfig {
         applicationId = "com.example.spotifyproj2"
-        minSdk = 33
+        minSdk = 34
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        manifestPlaceholders["redirectSchemeName"] = "com.example.spotifyproj2"
+        manifestPlaceholders["redirectSchemeName"] = "spotifyproj2"
         manifestPlaceholders["redirectHostName"] = "auth"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

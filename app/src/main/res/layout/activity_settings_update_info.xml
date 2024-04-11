@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
-        android:text="Name"
+        android:text="Edit Name"
         android:textSize="16sp"
         android:fontFamily="@font/spotify"
         android:textColor="@color/white"/>
@@ -44,7 +44,7 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your name"
+            android:hint="Enter your new name"
             android:fontFamily="@font/spotify"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
-        android:text="Username"
+        android:text="Edit Username"
         android:textSize="16sp"
         android:fontFamily="@font/spotify"
         android:textColor="@color/white"/>
@@ -73,7 +73,7 @@
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your username"
+            android:hint="Enter your new username"
             android:fontFamily="@font/spotify"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
-        android:text="Password"
+        android:text="Edit Password"
         android:textSize="16sp"
         android:fontFamily="@font/spotify"
         android:textColor="@color/white"/>
@@ -102,7 +102,36 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your password"
+            android:hint="Enter your new password"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Re-type Password Input Field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Re-type New Password"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRetypePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Re-type your new password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
             android:fontFamily="@font/spotify"/>
     </com.google.android.material.textfield.TextInputLayout>
 

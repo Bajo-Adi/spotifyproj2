@@ -90,15 +90,15 @@
         <!-- STILL NEED: Backend to connect this with local database and check if username and password exist-->
         <!-- Then this will take us to the Home Page-->
 
-        <Button
-            android:id="@+id/token_btn"
-            android:layout_width="147dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/dark_green"
-            android:fontFamily="@font/spotify"
-            android:text="Log Into Spotify"
-            app:cornerRadius="15dp" />
+<!--        <Button-->
+<!--            android:id="@+id/token_btn"-->
+<!--            android:layout_width="147dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:backgroundTint="@color/dark_green"-->
+<!--            android:fontFamily="@font/spotify"-->
+<!--            android:text="Log Into Spotify"-->
+<!--            app:cornerRadius="15dp" />-->
 
 <!--        <EditText-->
 <!--            android:id="@+id/username_edit_text"-->
@@ -157,3 +157,13 @@
         app:srcCompat="@drawable/spotify_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
