@@ -109,8 +109,28 @@ public class NewWrappedActivity extends AppCompatActivity {
             // Preparing data
             Map<String, Object> data = new HashMap<>();
             String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-            data.put("topTracks", topTracks);
-            data.put("topArtists", topArtists);
+
+            // Dynamically retrieve the text from TextViews for songs and artists
+            ArrayList<String> songs = new ArrayList<>();
+            ArrayList<String> artists = new ArrayList<>();
+            for (int i = 1; i <= 5; i++) {
+                int songResId = getResources().getIdentifier("song" + i, "id", getPackageName());
+                int artistResId = getResources().getIdentifier("artist" + i, "id", getPackageName());
+
+                TextView songTextView = findViewById(songResId);
+                TextView artistTextView = findViewById(artistResId);
+
+                if (songTextView != null) {
+                    songs.add(songTextView.getText().toString());
+                }
+                if (artistTextView != null) {
+                    artists.add(artistTextView.getText().toString());
+                }
+            }
+
+            // Add the retrieved text to the data map
+            data.put("topTracks", songs);
+            data.put("topArtists", artists);
             data.put("date", currentDate);
 
             // Document reference: users/{userId}/wrappeds/{currentDate}
