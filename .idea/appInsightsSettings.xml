@@ -10,9 +10,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.spotifyproj2" />
-                  <option name="mobileSdkAppId" value="1:997315291544:android:bcde7c31499a567d3c63ed" />
-                  <option name="projectId" value="cs2340project2" />
-                  <option name="projectNumber" value="997315291544" />
+                  <option name="mobileSdkAppId" value="1:784604084162:android:71904221489dc6b804c85b" />
+                  <option name="projectId" value="csproj22340" />
+                  <option name="projectNumber" value="784604084162" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

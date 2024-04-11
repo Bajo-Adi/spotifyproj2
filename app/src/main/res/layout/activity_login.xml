@@ -53,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter your username"
+                android:textColor="@color/white"
                 android:fontFamily="@font/spotify"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,8 +82,19 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter your password"
                 android:inputType="textPassword"
+                android:textColor="@color/white"
                 android:fontFamily="@font/spotify"/>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/signupRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? Sign up here"
+            android:textColor="@color/white"
+            android:paddingTop="16dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/spotify"/>
 
 
 

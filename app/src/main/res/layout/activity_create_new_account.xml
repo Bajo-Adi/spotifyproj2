@@ -78,6 +78,7 @@
             android:id="@+id/etCreateUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:hint="Enter your username"
             android:fontFamily="@font/spotify"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -107,6 +108,7 @@
                 android:id="@+id/etCreateEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:hint="Enter your username"
                 android:fontFamily="@font/spotify"/>
         </com.google.android.material.textfield.TextInputLayout>

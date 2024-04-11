@@ -63,18 +63,20 @@ public class CreateNewAccount extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        Toast.makeText(this, "Created New Account successfully.", Toast.LENGTH_SHORT).show();
                         FirebaseUser firebaseUser = mAuth.getCurrentUser();
                         User user = new User();
                         user.setDisplayName(name);
                         user.setId(username);
                         user.setEmail(email);
                         // Additional user information
+                        assert firebaseUser != null;
                         addUserToFirestore(firebaseUser.getUid(), user);
 
                         sendEmailVerification();
                         updateUI(firebaseUser);
                     } else {
-                        Toast.makeText(this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Sign up failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         updateUI(null);
                     }
                 });
