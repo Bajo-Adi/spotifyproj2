@@ -41,7 +41,7 @@
                 <!-- Must be the same in com.example.project2_spotify_cs2340.MainActivity, Gradle, and Spotify Dashboard! -->
 
                 <data
-                    android:scheme="spotifyproj2"
+                    android:scheme="com.example.spotifyproj2"
                     android:host= "auth" />
             </intent-filter>
         </activity>

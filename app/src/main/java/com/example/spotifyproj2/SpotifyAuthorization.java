@@ -24,7 +24,7 @@ import java.util.Map;
 public class SpotifyAuthorization extends AppCompatActivity {
 
     public static final String CLIENT_ID = "d9dda103f124418d9ef669778cd7dda8";
-    public static final String REDIRECT_URI = "spotifyproj2://auth";
+    public static final String REDIRECT_URI = "com.example.spotifyproj2://auth";
     public static final int AUTH_TOKEN_REQUEST_CODE = 0;
     public static final int AUTH_CODE_REQUEST_CODE = 1;
     private String mAccessToken, mAccessCode;
