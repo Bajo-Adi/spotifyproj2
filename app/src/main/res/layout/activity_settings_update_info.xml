@@ -45,7 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your new name"
-            android:fontFamily="@font/spotify"/>
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Username Label -->
@@ -54,7 +55,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
-        android:text="Edit Username"
+        android:text="Edit Email ID"
         android:textSize="16sp"
         android:fontFamily="@font/spotify"
         android:textColor="@color/white"/>
@@ -73,8 +74,9 @@
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your new username"
-            android:fontFamily="@font/spotify"/>
+            android:hint="Enter your new email ID"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password Label -->
@@ -103,7 +105,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your new password"
-            android:fontFamily="@font/spotify"/>
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Re-type Password Input Field -->
@@ -163,7 +166,8 @@
             android:entries="@array/dropdown_options"
             android:fontFamily="@font/spotify"
             android:backgroundTint="@color/white"
-            android:popupBackground="@color/white"/>
+            android:popupBackground="@color/white"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -172,37 +176,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="24dp"
         android:gravity="center"
-        android:padding="8dp">
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:paddingTop="24dp">
 
         <!-- Submit Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSubmit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:layout_weight="1"
-            android:text="Submit"
-            android:backgroundTint="@color/dark_green"
-            android:textColor="@android:color/white"
             android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/dark_green"
             android:fontFamily="@font/spotify"
-            android:textStyle="bold"/> <!-- Increased margin for spacing -->
+            android:text="Submit"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" /> <!-- Increased margin for spacing -->
 
         <!-- Delete Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDelete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:layout_weight="1"
-            android:text="Delete"
-            android:backgroundTint="@color/dark_green"
-            android:textColor="@android:color/white"
             android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/dark_green"
             android:fontFamily="@font/spotify"
+            android:text="Delete"
+            android:textColor="@android:color/white"
             android:textStyle="bold"/> <!-- Increased margin for spacing -->
     </LinearLayout>
 
@@ -216,5 +220,4 @@
         android:textColor="@color/white"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/spotify"/>
-
 </LinearLayout>
