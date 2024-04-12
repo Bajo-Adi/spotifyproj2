@@ -1,62 +1,73 @@
 package com.example.spotifyproj2;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
-import java.util.List;
-import java.util.Map;
+import org.json.JSONObject;
 
-// This class should mirror the structure of the Wrapped data in your Firebase Realtime Database
+import java.util.Date;
+
 public class WrappedData {
-    private List<String> topSongs;
-    private List<String> topArtists;
-    private Map<String, Integer> genreCounts;
-    private String userId; // or any other fields that represent the data you store for each Wrapped
 
-    // Default constructor required for calls to DataSnapshot.getValue(WrappedData.class)
-    public WrappedData() {
+    private JsonArray favoriteArtists;
+    private JsonArray previewTracks;
+    private JsonArray albums;
+
+
+    public void setPreviewTracks(JsonArray previewTracks) {
+        this.previewTracks = previewTracks;
     }
 
-    // Constructor to set all fields when creating a new WrappedData object
-    public WrappedData(List<String> topSongs, List<String> topArtists, Map<String, Integer> genreCounts, String userId) {
-        this.topSongs = topSongs;
-        this.topArtists = topArtists;
-        this.genreCounts = genreCounts;
-        this.userId = userId;
+    public JsonArray getPreviewTracks() {
+        return previewTracks;
+    }
+    public JsonArray getAlbums() {
+        return albums;
+    }
+    public void setAlbums(JsonArray albums) {this.albums = albums;}
+
+    public JsonArray getFavoriteArtists() {
+        return favoriteArtists;
     }
 
-    // Getters and setters for all fields
-    public List<String> getTopSongs() {
-        return topSongs;
+    public void setFavoriteArtists(JsonArray favoriteArtists) {
+        this.favoriteArtists = favoriteArtists;
     }
 
-    public void setTopSongs(List<String> topSongs) {
-        this.topSongs = topSongs;
+    public JsonArray getFavoriteTracks() {
+        return favoriteTracks;
     }
 
-    public List<String> getTopArtists() {
-        return topArtists;
+    public void setFavoriteTracks(JsonArray favoriteTracks) {
+        this.favoriteTracks = favoriteTracks;
     }
 
-    public void setTopArtists(List<String> topArtists) {
-        this.topArtists = topArtists;
+    public JSONObject getArtistRecommendations() {
+        return artistRecommendations;
     }
 
-    public Map<String, Integer> getGenreCounts() {
-        return genreCounts;
+    public void setArtistRecommendations(JSONObject artistRecommendations) {
+        this.artistRecommendations = artistRecommendations;
     }
 
-    public void setGenreCounts(Map<String, Integer> genreCounts) {
-        this.genreCounts = genreCounts;
+    public JsonObject getTracksSaved() {
+        return tracksSaved;
     }
 
-    public String getUserId() {
-        return userId;
+    public void setTracksSaved(JsonObject tracksSaved) {
+        this.tracksSaved = tracksSaved;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    private JsonArray favoriteTracks;
+    private JSONObject artistRecommendations;
+    private JsonObject tracksSaved;
+    private Date savedDate;
+
+    public Date getSavedDate() {
+        return savedDate;
     }
 
-    // You may add other methods, such as a toString(), if needed
+    public void setSavedDate(Date savedDate) {
+        this.savedDate = savedDate;
+    }
 }
-
-

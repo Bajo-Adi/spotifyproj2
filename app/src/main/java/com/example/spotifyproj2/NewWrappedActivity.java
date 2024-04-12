@@ -1,17 +1,25 @@
 package com.example.spotifyproj2;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -32,6 +41,7 @@ public class NewWrappedActivity extends AppCompatActivity {
     private String mAccessToken; // Spotify Access Token
     private List<String> topTracks = new ArrayList<>();
     private List<String> topArtists = new ArrayList<>();
+    private Button btnDownloadPDF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +52,33 @@ public class NewWrappedActivity extends AppCompatActivity {
         if (mAccessToken != null) {
             fetchSpotifyData("https://api.spotify.com/v1/me/top/tracks?time_range=long_term", "song");
             fetchSpotifyData("https://api.spotify.com/v1/me/top/artists?time_range=long_term", "artist");
+        } else {
+            Toast.makeText(this, "Please get a token first", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(NewWrappedActivity.this, "Please get a token first",Toast.LENGTH_SHORT).show();
+
+        btnDownloadPDF = findViewById(R.id.download_button);
+        btnDownloadPDF.setOnClickListener(v -> convertLayoutToPDF());
+    }
+
+    private void convertLayoutToPDF() {
+        View content = findViewById(android.R.id.content).getRootView();
+        content.setDrawingCacheEnabled(true);
+
+        try {
+            File file = new File(getExternalFilesDir(null), "NewWrapped.pdf");
+            FileOutputStream fos = new FileOutputStream(file);
+            content.getDrawingCache().compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+            fos.close();
+            content.setDrawingCacheEnabled(false);
+            Toast.makeText(this, "PDF Downloaded: " + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error saving PDF", Toast.LENGTH_SHORT).show();
         }
     }
 
     private String getAccessToken() {
-        // Retrieve the Spotify Access Token from SharedPreferences
         return getSharedPreferences("SpotifyPreferences", MODE_PRIVATE).getString("accessToken", null);
     }
 
@@ -62,92 +91,64 @@ public class NewWrappedActivity extends AppCompatActivity {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                // Handle error
+                Log.e("SpotifyData", "Failed to fetch data: " + e.getMessage(), e);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                String responseBody = response.body().string();
-
                 if (response.isSuccessful()) {
                     try {
+                        String responseBody = response.body().string();
                         JSONObject json = new JSONObject(responseBody);
                         JSONArray items = json.getJSONArray("items");
+
                         for (int i = 0; i < items.length(); i++) {
-                            String name = items.getJSONObject(i).getString("name");
-                            int finalI = i;
-                            runOnUiThread(() -> updateUI(type + (finalI + 1), name));
+                            JSONObject item = items.getJSONObject(i);
+                            String name = item.getString("name");
+
                             if (type.equals("song")) {
                                 topTracks.add(name);
-                            } else if (type.equals("artist")) {
+                            } else {
                                 topArtists.add(name);
                             }
                         }
 
-                        if (type.equals("artist")) { // Store data after fetching both tracks and artists
+                        runOnUiThread(() -> {
+                            if (type.equals("song")) {
+                                // Update UI for songs
+                            } else {
+                                // Update UI for artists
+                            }
                             storeDataInFirestore();
-                        }
+                        });
                     } catch (Exception e) {
-                        Log.e("SpotifyData", "Failed parsing", e);
+                        Log.e("SpotifyData", "Error parsing data", e);
                     }
                 } else {
-                    Log.e("SpotifyData", "API" + responseBody);
+                    Log.e("SpotifyData", "Unsuccessful response" + response);
                 }
             }
         });
     }
 
-    private void updateUI(String viewId, String text) {
-        int resId = getResources().getIdentifier(viewId, "id", getPackageName());
-        TextView textView = findViewById(resId);
-        if (textView != null) {
-            textView.setText(text);
-        }
-    }
-
     private void storeDataInFirestore() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = auth.getCurrentUser();
-
-        if (currentUser != null) {
-            // Preparing data
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
             Map<String, Object> data = new HashMap<>();
-            String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+            data.put("topTracks", topTracks);
+            data.put("topArtists", topArtists);
+            data.put("date", new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date()));
 
-            // Dynamically retrieve the text from TextViews for songs and artists
-            ArrayList<String> songs = new ArrayList<>();
-            ArrayList<String> artists = new ArrayList<>();
-            for (int i = 1; i <= 5; i++) {
-                int songResId = getResources().getIdentifier("song" + i, "id", getPackageName());
-                int artistResId = getResources().getIdentifier("artist" + i, "id", getPackageName());
-
-                TextView songTextView = findViewById(songResId);
-                TextView artistTextView = findViewById(artistResId);
-
-                if (songTextView != null) {
-                    songs.add(songTextView.getText().toString());
-                }
-                if (artistTextView != null) {
-                    artists.add(artistTextView.getText().toString());
-                }
-            }
-
-            // Add the retrieved text to the data map
-            data.put("topTracks", songs);
-            data.put("topArtists", artists);
-            data.put("date", currentDate);
-
-            // Document reference: users/{userId}/wrappeds/{currentDate}
             db.collection("users")
-                    .document(currentUser.getUid())
+                    .document(user.getUid())
                     .collection("wrappeds")
-                    .document(currentDate)
+                    .document(data.get("date").toString())
                     .set(data)
-                    .addOnSuccessListener(aVoid -> Log.d("Firestore", "Wrapped data successfully written for date: " + currentDate))
-                    .addOnFailureListener(e -> Log.w("Firestore", "Error writing wrapped data", e));
+                    .addOnSuccessListener(aVoid -> Log.d("Firestore", "Data successfully written!"))
+                    .addOnFailureListener(e -> Log.w("Firestore", "Error writing document", e));
         } else {
-            Log.w("Firestore", "No user logged in");
+            Log.w("Firestore", "User not logged in");
         }
     }
 }

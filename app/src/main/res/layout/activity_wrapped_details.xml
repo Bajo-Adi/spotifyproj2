@@ -34,7 +34,7 @@
         android:paddingTop="15dp"
         android:paddingRight="0dp"
         android:paddingBottom="5dp"
-        android:text="Your New Wrapped!"
+        android:text="Your Past Wrapped!"
         android:textColor="@color/purple_200"
         android:textSize="35sp"
         android:textStyle="bold"

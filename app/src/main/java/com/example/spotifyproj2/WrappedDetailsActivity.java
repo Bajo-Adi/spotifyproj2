@@ -70,7 +70,7 @@ public class WrappedDetailsActivity extends AppCompatActivity {
     private void updateTopItemsUI(List<String> items, LinearLayout layout) {
         if (items != null) {
             for (int i = 0; i < items.size() && i < 5; i++) {
-                TextView textView = (TextView) layout.getChildAt(i);
+                TextView textView = (TextView) layout.getChildAt(i+1);
                 if (textView != null) {
                     textView.setText(items.get(i));
                 }

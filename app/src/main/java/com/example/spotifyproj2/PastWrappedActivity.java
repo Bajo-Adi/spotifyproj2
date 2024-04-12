@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.spotifyproj2.PW_RecyclerViewAdapter;
-import com.example.spotifyproj2.WrappedModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -32,14 +30,17 @@ public class PastWrappedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_wrapped);
 
+        // Initialize Firestore and FirebaseAuth instances
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        RecyclerView datesRecyclerView = findViewById(R.id.datesContainer);
-        datesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Setup the RecyclerView and its adapter
+        datesRecyclerView = findViewById(R.id.datesContainer);
+        datesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PW_RecyclerViewAdapter(this, new ArrayList<>());
         datesRecyclerView.setAdapter(adapter);
 
+        // Get current user and fetch their "wrappeds"
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             String uid = currentUser.getUid();
@@ -52,12 +53,14 @@ public class PastWrappedActivity extends AppCompatActivity {
                         String date = document.getString("date");
                         wrappedDates.add(new WrappedModel(date));
                     }
-                    // Pass the list to the RecyclerView Adapter
+                    // Pass the fetched dates to the RecyclerView Adapter
                     adapter.updateData(wrappedDates);
                 } else {
                     Log.w(TAG, "Error getting documents.", task.getException());
                 }
             });
+        } else {
+            Log.d(TAG, "No current user found.");
         }
     }
 }

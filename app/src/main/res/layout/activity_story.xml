@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".StoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/reverse"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/skip"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_fav_artists"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:translationZ="10dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_top_artists_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="These are your top artists"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_artist_1"
+                android:src="@drawable/red_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_artist_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_artist_2"
+                android:src="@drawable/green_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_artist_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_artist_3"
+                android:src="@drawable/green_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_artist_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_artist_4"
+                android:src="@drawable/red_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_artist_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_artist_5"
+                android:src="@drawable/blue_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_artist_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_fav_tracks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:translationZ="10dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/tv_top_tracks_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="These are your top tracks"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_track_1"
+                android:src="@drawable/red_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_track_name_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_track_artist_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_track_2"
+                android:src="@drawable/green_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_track_name_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_track_artist_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_track_3"
+                android:src="@drawable/blue_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_track_name_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_track_artist_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_track_4"
+                android:src="@drawable/blue_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_track_name_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_track_artist_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_track_5"
+                android:src="@drawable/green_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_track_name_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_track_artist_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travis Scott"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/spotify"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_fav_albums"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:translationZ="10dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_top_albums"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="These are your top albums"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_album_1"
+                android:src="@drawable/red_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_album_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_album_2"
+                android:src="@drawable/green_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_album_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_album_3"
+                android:src="@drawable/green_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_album_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_album_4"
+                android:src="@drawable/red_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_album_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/iv_album_5"
+                android:src="@drawable/blue_back"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_album_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travis Scott"
+                android:textSize="24sp"
+                android:fontFamily="@font/spotify"
+                android:layout_marginStart="24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/blue_back" />
+
+    <jp.shts.android.storiesprogressview.StoriesProgressView
+        android:id="@+id/stories"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="8dp" />
+
+</merge>
