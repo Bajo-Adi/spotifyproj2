@@ -1,8 +1,14 @@
 package com.example.spotifyproj2;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.spotifyproj2.SettingsUpdateInfo;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Spinner;
 import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,16 +36,43 @@ public class NewWrappedActivity extends AppCompatActivity {
     private String mAccessToken; // Spotify Access Token
     private List<String> topTracks = new ArrayList<>();
     private List<String> topArtists = new ArrayList<>();
+    //private Spinner spinner_house;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_wrapped);
+        //LayoutInflater inflater = getLayoutInflater();
+        //View settingsView = inflater.inflate(R.layout.activity_settings_update_info, null);
+        //setContentView(settingsView);
+        //SettingsUpdateInfo settings = new SettingsUpdateInfo();
+        String time = SettingsUpdateInfo.getTime(this);
+        //spinner_house = findViewById(R.id.spinnerOptions);
+        //String spinner_data = spinner_house.getSelectedItem().toString();
+        String s1 = "https://api.spotify.com/v1/me/top/tracks?time_range=short_term";
+        String s2 = "https://api.spotify.com/v1/me/top/artists?time_range=short_term";
+        Log.d("test",time);
+         switch (time){
+         case "1 month":
+         s1 ="https://api.spotify.com/v1/me/top/tracks?time_range=short_term";
+         s2 ="https://api.spotify.com/v1/me/top/artists?time_range=short_term";
+         Log.d("t","entered here");
+         break;
+         case "6 months":
+         s1 ="https://api.spotify.com/v1/me/top/tracks?time_range=medium_term";
+         s2 ="https://api.spotify.com/v1/me/top/artists?time_range=medium_term";
+         break;
+         case "1 year":
+         s1 ="https://api.spotify.com/v1/me/top/tracks?time_range=long_term";
+         s2 ="https://api.spotify.com/v1/me/top/artists?time_range=long_term";
+         break;
+         }
 
         mAccessToken = getAccessToken();
         if (mAccessToken != null) {
-            fetchSpotifyData("https://api.spotify.com/v1/me/top/tracks?time_range=long_term", "song");
-            fetchSpotifyData("https://api.spotify.com/v1/me/top/artists?time_range=long_term", "artist");
+            fetchSpotifyData(s1, "song");
+            fetchSpotifyData(s2, "artist");
         }
     }
 
