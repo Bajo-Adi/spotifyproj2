@@ -32,6 +32,10 @@
             android:exported="false" />
         <activity android:name=".SpotifyAuthorization"
             android:exported="false" />
+        <activity android:name=".PastWrappedActivity"
+            android:exported="false" />
+        <activity android:name=".WrappedDetailsActivity"
+            android:exported="false" />
         <!-- com.example.project2_spotify_cs2340.MainActivity declaration -->
         <activity
             android:name=".MainActivity"

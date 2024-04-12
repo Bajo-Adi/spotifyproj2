@@ -42,7 +42,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Replace MainActivity.class with the class of the activity you want to navigate to
-                Intent intent = new Intent(HomeScreen.this, Past_Wrapped.class);
+                Intent intent = new Intent(HomeScreen.this, PastWrappedActivity.class);
                 startActivity(intent);
             }
         });

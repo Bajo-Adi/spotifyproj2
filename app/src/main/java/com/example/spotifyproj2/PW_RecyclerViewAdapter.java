@@ -1,6 +1,10 @@
 package com.example.spotifyproj2;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -33,11 +37,24 @@ public class PW_RecyclerViewAdapter  extends RecyclerView.Adapter<PW_RecyclerVie
 
     @Override
     public void onBindViewHolder(@NonNull PW_RecyclerViewAdapter.MyViewHolder holder, int position) {
-//        assigning values to rows as they recycle back on the screen
+        WrappedModel wrappedModel = models.get(position);
+        holder.tvDate.setText(wrappedModel.getDate());
 
-        holder.tvDate.setText(models.get(position).getDate());
-
+        // Set click listener on the entire holder view
+        holder.itemView.setOnClickListener(v -> {
+            // Launch WrappedDetailsActivity with the selected date
+            Intent intent = new Intent(context, WrappedDetailsActivity.class);
+            intent.putExtra("DATE", wrappedModel.getDate());
+            context.startActivity(intent);
+            Log.d("Dates", "Correctly fetched data");
+        });
     }
+    public void updateData(List<WrappedModel> newModels) {
+        models.clear();
+        models.addAll(newModels);
+        notifyDataSetChanged(); // This will refresh the RecyclerView
+    }
+
 
     @Override
     public int getItemCount() {

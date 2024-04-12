@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    tools:context=".Past_Wrapped">
+    tools:context=".PastWrappedActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:textSize="40sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lalala"
+            android:id="@+id/datesContainer"
             android:layout_width="409dp"
             android:layout_height="729dp"
             android:clickable="true" />
