@@ -1,6 +1,7 @@
 package com.example.spotifyproj2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -233,6 +234,8 @@ public class SettingsUpdateInfo extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 // Document successfully deleted
                                 Toast.makeText(SettingsUpdateInfo.this, "Account successfully deleted!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SettingsUpdateInfo.this, MainActivity.class);
+                                startActivity(intent);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
