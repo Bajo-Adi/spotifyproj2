@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -40,6 +42,9 @@ public class NewWrappedActivity extends AppCompatActivity {
         if (mAccessToken != null) {
             fetchSpotifyData("https://api.spotify.com/v1/me/top/tracks", "song");
             fetchSpotifyData("https://api.spotify.com/v1/me/top/artists", "artist");
+        }
+        else{
+            Toast.makeText(NewWrappedActivity.this, "Please get a token first",Toast.LENGTH_SHORT).show();
         }
     }
 
