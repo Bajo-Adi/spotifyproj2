@@ -135,6 +135,39 @@
             android:fontFamily="@font/spotify"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Dropdown Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose an Option"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <!-- Dropdown (Spinner) -->
+        <Spinner
+            android:id="@+id/spinnerOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:entries="@array/dropdown_options"
+            android:fontFamily="@font/spotify"
+            android:backgroundTint="@color/white"
+            android:popupBackground="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
     <!-- Action Buttons Container -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -171,7 +204,17 @@
             android:layout_marginStart="16dp"
             android:fontFamily="@font/spotify"
             android:textStyle="bold"/> <!-- Increased margin for spacing -->
-
-
     </LinearLayout>
+
+    <!-- Theme Toggle Switch -->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/themeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dark Mode"
+        android:checked="true"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/spotify"/>
+
 </LinearLayout>

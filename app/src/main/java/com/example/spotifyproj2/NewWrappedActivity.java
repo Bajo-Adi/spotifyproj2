@@ -40,8 +40,8 @@ public class NewWrappedActivity extends AppCompatActivity {
 
         mAccessToken = getAccessToken();
         if (mAccessToken != null) {
-            fetchSpotifyData("https://api.spotify.com/v1/me/top/tracks", "song");
-            fetchSpotifyData("https://api.spotify.com/v1/me/top/artists", "artist");
+            fetchSpotifyData("https://api.spotify.com/v1/me/top/tracks?time_range=long_term", "song");
+            fetchSpotifyData("https://api.spotify.com/v1/me/top/artists?time_range=long_term", "artist");
         }
         else{
             Toast.makeText(NewWrappedActivity.this, "Please get a token first",Toast.LENGTH_SHORT).show();
