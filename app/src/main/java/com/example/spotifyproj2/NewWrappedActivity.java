@@ -47,13 +47,35 @@ public class NewWrappedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_wrapped);
+        String time = SettingsUpdateInfo.getTime(this);
+        //spinner_house = findViewById(R.id.spinnerOptions);
+        //String spinner_data = spinner_house.getSelectedItem().toString();
+        String s1 = "https://api.spotify.com/v1/me/top/tracks?time_range=short_term";
+        String s2 = "https://api.spotify.com/v1/me/top/artists?time_range=short_term";
+        Log.d("test",time);
+        switch (time){
+            case "1 month":
+                s1 ="https://api.spotify.com/v1/me/top/tracks?time_range=short_term";
+                s2 ="https://api.spotify.com/v1/me/top/artists?time_range=short_term";
+                Log.d("t","entered here");
+                break;
+            case "6 months":
+                s1 ="https://api.spotify.com/v1/me/top/tracks?time_range=medium_term";
+                s2 ="https://api.spotify.com/v1/me/top/artists?time_range=medium_term";
+                break;
+            case "1 year":
+                s1 ="https://api.spotify.com/v1/me/top/tracks?time_range=long_term";
+                s2 ="https://api.spotify.com/v1/me/top/artists?time_range=long_term";
+                break;
+        }
 
         mAccessToken = getAccessToken();
         if (mAccessToken != null) {
-            fetchSpotifyData("https://api.spotify.com/v1/me/top/tracks?time_range=long_term", "song");
-            fetchSpotifyData("https://api.spotify.com/v1/me/top/artists?time_range=long_term", "artist");
-        } else {
-            Toast.makeText(this, "Please get a token first", Toast.LENGTH_SHORT).show();
+            fetchSpotifyData(s1, "song");
+            fetchSpotifyData(s2, "artist");
+        }
+        else{
+            Toast.makeText(NewWrappedActivity.this, "Please get a token first",Toast.LENGTH_SHORT).show();
         }
 
         btnDownloadPDF = findViewById(R.id.download_button);
@@ -96,59 +118,84 @@ public class NewWrappedActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                String responseBody = response.body().string();
                 if (response.isSuccessful()) {
                     try {
-                        String responseBody = response.body().string();
                         JSONObject json = new JSONObject(responseBody);
                         JSONArray items = json.getJSONArray("items");
-
                         for (int i = 0; i < items.length(); i++) {
-                            JSONObject item = items.getJSONObject(i);
-                            String name = item.getString("name");
-
+                            String name = items.getJSONObject(i).getString("name");
+                            int finalI = i;
+                            runOnUiThread(() -> updateUI(type + (finalI + 1), name));
                             if (type.equals("song")) {
                                 topTracks.add(name);
-                            } else {
+                            } else if (type.equals("artist")) {
                                 topArtists.add(name);
                             }
                         }
-
-                        runOnUiThread(() -> {
-                            if (type.equals("song")) {
-                                // Update UI for songs
-                            } else {
-                                // Update UI for artists
-                            }
+                        if (type.equals("artist")) { // Store data after fetching both tracks and artists
                             storeDataInFirestore();
-                        });
+                        }
                     } catch (Exception e) {
-                        Log.e("SpotifyData", "Error parsing data", e);
+                        Log.e("SpotifyData", "Failed parsing", e);
                     }
                 } else {
-                    Log.e("SpotifyData", "Unsuccessful response" + response);
+                    Log.e("SpotifyData", "API" + responseBody);
                 }
             }
         });
     }
-
+    private void updateUI(String viewId, String text) {
+        int resId = getResources().getIdentifier(viewId, "id", getPackageName());
+        TextView textView = findViewById(resId);
+        if (textView != null) {
+            textView.setText(text);
+        }
+    }
     private void storeDataInFirestore() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            // Preparing data
             Map<String, Object> data = new HashMap<>();
+            String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
             data.put("topTracks", topTracks);
             data.put("topArtists", topArtists);
-            data.put("date", new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date()));
 
+            // Dynamically retrieve the text from TextViews for songs and artists
+            ArrayList<String> songs = new ArrayList<>();
+            ArrayList<String> artists = new ArrayList<>();
+            for (int i = 1; i <= 5; i++) {
+                int songResId = getResources().getIdentifier("song" + i, "id", getPackageName());
+                int artistResId = getResources().getIdentifier("artist" + i, "id", getPackageName());
+
+                TextView songTextView = findViewById(songResId);
+                TextView artistTextView = findViewById(artistResId);
+
+                if (songTextView != null) {
+                    songs.add(songTextView.getText().toString());
+                }
+                if (artistTextView != null) {
+                    artists.add(artistTextView.getText().toString());
+                }
+            }
+
+            // Add the retrieved text to the data map
+            data.put("topTracks", songs);
+            data.put("topArtists", artists);
+            data.put("date", currentDate);
+
+            // Document reference: users/{userId}/wrappeds/{currentDate}
             db.collection("users")
-                    .document(user.getUid())
+                    .document(currentUser.getUid())
                     .collection("wrappeds")
-                    .document(data.get("date").toString())
+                    .document(currentDate)
                     .set(data)
-                    .addOnSuccessListener(aVoid -> Log.d("Firestore", "Data successfully written!"))
-                    .addOnFailureListener(e -> Log.w("Firestore", "Error writing document", e));
+                    .addOnSuccessListener(aVoid -> Log.d("Firestore", "Wrapped data successfully written for date: " + currentDate))
+                    .addOnFailureListener(e -> Log.w("Firestore", "Error writing wrapped data", e));
         } else {
-            Log.w("Firestore", "User not logged in");
+            Log.w("Firestore", "No user logged in");
         }
     }
 }

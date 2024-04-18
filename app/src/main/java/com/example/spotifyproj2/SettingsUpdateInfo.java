@@ -51,7 +51,15 @@ public class SettingsUpdateInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_settings_update_info);
-
+        Button homeBtn = (Button) findViewById(R.id.home_button);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Replace MainActivity.class with the class of the activity you want to navigate to
+                Intent intent = new Intent(SettingsUpdateInfo.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
         spinner = findViewById(R.id.spinnerOptions);
         name = findViewById(R.id.etName);
         email = findViewById(R.id.etUsername);
@@ -59,6 +67,7 @@ public class SettingsUpdateInfo extends AppCompatActivity {
         password2 = findViewById(R.id.etRetypePassword);
         submitButton = findViewById(R.id.btnSubmit);
         delButton = findViewById(R.id.btnDelete);
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

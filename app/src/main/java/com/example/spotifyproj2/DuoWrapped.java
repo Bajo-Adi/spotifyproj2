@@ -23,6 +23,7 @@ public class DuoWrapped extends AppCompatActivity {
     private EditText editTextUser2Email;
     private String editTextUser1Email;
     private Button buttonCompare;
+    private TextView tvResults;
     private TextView duoSongs, duoArtists, duoSongTogether, duoSimilarityPercent;
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = auth.getCurrentUser();
@@ -37,10 +38,12 @@ public class DuoWrapped extends AppCompatActivity {
         editTextUser1Email = auth.getCurrentUser().getEmail().toString();
         editTextUser2Email = findViewById(R.id.editTextFriendEmail);  // Assume another ID for the second email
         buttonCompare = findViewById(R.id.buttonDuoWrapped);  // Update ID as per your layout
-        duoSongs = findViewById(R.id.duoSongs);
-        duoArtists = findViewById(R.id.duoArtists);
-        duoSongTogether = findViewById(R.id.duoSongTogether);
-        duoSimilarityPercent = findViewById(R.id.duoSimilarityPercent);
+//        duoSongs = findViewById(R.id.duoSongs);
+//        duoArtists = findViewById(R.id.duoArtists);
+//        duoSongTogether = findViewById(R.id.duoSongTogether);
+//        duoSimilarityPercent = findViewById(R.id.duoSimilarityPercent);
+        tvResults = findViewById(R.id.tvResults);
+
 
         buttonCompare.setOnClickListener(v -> {
             String email1 = editTextUser1Email;
@@ -82,11 +85,19 @@ public class DuoWrapped extends AppCompatActivity {
 
         double similarityScore = calculateSimilarityScore(commonSongs.size(), commonArtists.size(), user1TopSongs.size(), user2TopSongs.size(), user1TopArtists.size(), user2TopArtists.size());
 
+        String resultsText = "Shared songs: " + commonSongs + "\n" +
+                "Shared artists: " + commonArtists + "\n" +
+                "The song that brings you together is: " + (commonSongs.isEmpty() ? "None" : commonSongs.iterator().next()) + "\n" +
+                "You Have a " + String.format("%.2f", similarityScore) + "% Similarity Score in Music Taste!";
+
         duoSongs.setText("Shared songs: " + commonSongs.toString());
         duoArtists.setText("Shared artists: " + commonArtists.toString());
         duoSongTogether.setText("The song that brings you together is: " + (commonSongs.isEmpty() ? "None" : commonSongs.iterator().next()));
-        duoSimilarityPercent.setText("You Have a " + similarityScore + "% Similarity Score in Music Taste!");
+        duoSimilarityPercent.setText("You Have a " + String.format("%.2f", similarityScore) + "% Similarity Score in Music Taste!");
+        tvResults.setText(resultsText);  // Update the new TextView with results
     }
+
+
 
     private double calculateSimilarityScore(int commonSongsCount, int commonArtistsCount, int totalSongsUser1, int totalSongsUser2, int totalArtistsUser1, int totalArtistsUser2) {
         double totalItems = (totalSongsUser1 + totalSongsUser2 + totalArtistsUser1 + totalArtistsUser2);

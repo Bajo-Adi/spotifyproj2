@@ -34,6 +34,7 @@ public class PastWrappedActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+
         // Setup the RecyclerView and its adapter
         datesRecyclerView = findViewById(R.id.datesContainer);
         datesRecyclerView.setLayoutManager(new LinearLayoutManager(this));

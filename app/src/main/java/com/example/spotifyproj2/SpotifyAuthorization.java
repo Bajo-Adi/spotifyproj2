@@ -107,7 +107,8 @@ public class SpotifyAuthorization extends AppCompatActivity {
         if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
             mAccessToken = response.getAccessToken();
             saveToken(mAccessToken);
-            setTextAsync(mAccessToken, tokenTextView);
+//            setTextAsync(mAccessToken, tokenTextView);
+            Toast.makeText(SpotifyAuthorization.this, "You have successfully fetched your Spotify Token", Toast.LENGTH_SHORT).show();
 
         } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
             mAccessCode = response.getCode();
@@ -152,7 +153,8 @@ public class SpotifyAuthorization extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     final JSONObject jsonObject = new JSONObject(response.body().string());
-                    setTextAsync(jsonObject.toString(3), profileTextView);
+//                    setTextAsync(jsonObject.toString(3), profileTextView);
+                    Toast.makeText(SpotifyAuthorization.this, "You have successfully fetched your user profile!", Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     Log.d("JSON", "Failed to parse data: " + e);
                     Toast.makeText(SpotifyAuthorization.this, "Failed to parse data, watch Logcat for more details",
