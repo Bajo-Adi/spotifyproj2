@@ -112,12 +112,17 @@ public class HomeScreen extends AppCompatActivity {
 
         @Override
         public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+                try{
+                    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
-                results.add(response.body().string());
+                    if (response.body() != null) {
+                        results.add(response.body().string());
+                    }
+                    } finally {
+                        response.close();  // Close the response to free resources
+                    }
                 Log.d("APISTUFF", "onResponse:" + response);
                 fetchSequentialData(endpoints, index + 1, results);
-
             }
         });
     }

@@ -562,16 +562,46 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
         }
     }
 
-    private void processIntentData() {
-        Intent intent = getIntent();
-        Parcelable wrappedInfo = intent.getParcelableExtra("wrapped_info");
-        if (wrappedInfo instanceof WrappedData) {
-            wrapped_info = (WrappedData) wrappedInfo;
-            // Now you can use wrapped_info throughout your activity
-        } else {
-            Log.e(TAG, "Invalid or no wrapped data found in intent extras");
+//    private void processIntentData() {
+//        Intent intent = getIntent();
+//        Parcelable wrappedInfo = intent.getParcelableExtra("wrapped_info");
+//        if (wrappedInfo instanceof WrappedData) {
+//            wrapped_info = (WrappedData) wrappedInfo;
+//            // Now you can use wrapped_info throughout your activity
+//        } else {
+//            Log.e(TAG, "Invalid or no wrapped data found in intent extras");
+//            finish();
+//        }
+//    }
+private void processIntentData() {
+    Intent intent = getIntent();
+    ArrayList<String> wrappedInfo = intent.getStringArrayListExtra("wrapped_info");
+    if (wrappedInfo != null) {
+        // Assuming WrappedData can be reconstructed from a list of strings (e.g., JSON)
+        // You need to have a method to convert these strings back into WrappedData objects
+        try {
+            this.wrapped_info = convertStringsToWrappedData(wrappedInfo);
+        } catch (Exception e) {
+            Log.e(TAG, "Error parsing wrapped data: " + e.getMessage());
             finish();
         }
+    } else {
+        Log.e(TAG, "Invalid or no wrapped data found in intent extras");
+        finish();
+    }
+}
+
+    // Example method to convert string data to WrappedData
+    private WrappedData convertStringsToWrappedData(ArrayList<String> dataStrings) {
+        // Here you need to implement conversion logic, potentially parsing JSON strings
+        // This is just a placeholder showing the concept
+        Gson gson = new Gson();
+        WrappedData data = new WrappedData();
+        // Example of setting one field based on parsed data
+        if (!dataStrings.isEmpty()) {
+            data = gson.fromJson(dataStrings.get(0), WrappedData.class);
+        }
+        return data;
     }
 
     private void setupListeners() {
@@ -618,35 +648,72 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
     }
 
     private void displayFavArtistInfo(JsonArray artists) {
+        if (artists == null || artists.size() == 0) {
+            Log.e(TAG, "Track data is null or empty");
+            return; // Skip processing if data is null or empty
+        }
         for (int i = 0; i < artists.size() && i < 5; i++) {
             JsonObject artist = artists.get(i).getAsJsonObject();
             tv_artists[i].setText(artist.get("name").getAsString());
-            Picasso.get().load(artist.get("imageUrl").getAsString()).into(iv_artists[i]);  // Assuming there's an imageUrl field
+            // Assuming each artist has an 'images' array and you want the first image URL
+            JsonArray images = artist.getAsJsonArray("images");
+            if (images != null && images.size() > 0) {
+                String imageUrl = images.get(0).getAsJsonObject().get("url").getAsString();
+                Picasso.get().load(imageUrl).into(iv_artists[i]);
+            }
         }
     }
 
+
     private void displayFavTrackInfo(JsonArray tracks) {
+        if (tracks == null || tracks.size() == 0) {
+            Log.e(TAG, "Track data is null or empty");
+            return; // Skip processing if data is null or empty
+        }
         for (int i = 0; i < tracks.size() && i < 5; i++) {
             JsonObject track = tracks.get(i).getAsJsonObject();
             tv_track_names[i].setText(track.get("name").getAsString());
-            tv_track_artists[i].setText(track.get("artist").getAsString());  // Assuming nested artist names
-            Picasso.get().load(track.get("imageUrl").getAsString()).into(iv_tracks[i]);
+            JsonArray artists = track.getAsJsonArray("artists");
+            if (artists != null && artists.size() > 0) {
+                JsonObject firstArtist = artists.get(0).getAsJsonObject();
+                tv_track_artists[i].setText(firstArtist.get("name").getAsString());
+            }
+            JsonObject album = track.getAsJsonObject("album");
+            if (album != null) {
+                JsonArray images = album.getAsJsonArray("images");
+                if (images != null && images.size() > 0) {
+                    String imageUrl = images.get(0).getAsJsonObject().get("url").getAsString();
+                    Picasso.get().load(imageUrl).into(iv_tracks[i]);
+                }
+            }
         }
     }
 
+
+
     private void displayFavAlbumInfo(JsonArray albums) {
+        if (albums == null || albums.size() == 0) {
+            Log.e(TAG, "Track data is null or empty");
+            return; // Skip processing if data is null or empty
+        }
         for (int i = 0; i < albums.size() && i < 5; i++) {
             JsonObject album = albums.get(i).getAsJsonObject();
             tv_album_names[i].setText(album.get("name").getAsString());
-            Picasso.get().load(album.get("imageUrl").getAsString()).into(iv_albums[i]);
+            JsonArray images = album.getAsJsonArray("images");
+            if (images != null && images.size() > 0) {
+                String imageUrl = images.get(0).getAsJsonObject().get("url").getAsString();
+                Picasso.get().load(imageUrl).into(iv_albums[i]);
+            }
         }
     }
+
 
     @Override
     public void onComplete() {
         if (toBeSaved) {
             showSaveDialog();
         } else {
+            navigateToNewWrappedActivity();
             finish();
         }
     }
@@ -670,13 +737,18 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
                     .update("wrapped_info", FieldValue.arrayUnion(wrappedJson))
                     .addOnSuccessListener(aVoid -> {
                         Toast.makeText(StoryActivity.this, "Wrapped has been saved", Toast.LENGTH_SHORT).show();
-                        finish();
+                        navigateToNewWrappedActivity();
                     })
                     .addOnFailureListener(e -> {
                         Log.e(TAG, "Error saving wrapped info", e);
                         Toast.makeText(StoryActivity.this, "Failed to save wrapped", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(StoryActivity.this, HomeScreen.class);
+                        startActivity(intent);
+
                     });
         } else {
+            Intent intent = new Intent(StoryActivity.this, HomeScreen.class);
+            startActivity(intent);
             Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
         }
     }
@@ -686,6 +758,11 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
             mediaPlayer.stop();
         }
         mediaPlayer.reset();
+
+        if (content < 0 || content >= previewURL.size()) {
+            Log.e(TAG, "Invalid content index or previewURL is empty");
+            return;
+        }
 
         try {
             String songUrl = previewURL.get(content);
@@ -707,5 +784,11 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
         }
         storiesProgressView.destroy();
     }
+    private void navigateToNewWrappedActivity() {
+        Intent intent = new Intent(StoryActivity.this, NewWrappedActivity.class);
+        startActivity(intent);
+        finish();  // Optionally call finish() if you do not want users to return to this activity
+    }
+
 }
 
