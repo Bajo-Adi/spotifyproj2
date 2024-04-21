@@ -721,12 +721,9 @@ private void processIntentData() {
 
     @Override
     public void onComplete() {
-        if (toBeSaved) {
-            showSaveDialog();
-        } else {
-            navigateToNewWrappedActivity();
-            finish();
-        }
+//        showSaveDialog();
+        navigateToNewWrappedActivity();
+        finish();
     }
 
     private void showSaveDialog() {

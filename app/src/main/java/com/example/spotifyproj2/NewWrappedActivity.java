@@ -129,6 +129,7 @@ public class NewWrappedActivity extends AppCompatActivity {
                             runOnUiThread(() -> updateUI(type + (finalI + 1), name));
                             if (type.equals("song")) {
                                 topTracks.add(name);
+                                storeDataInFirestore();
                             } else if (type.equals("artist")) {
                                 topArtists.add(name);
                             }
@@ -160,8 +161,8 @@ public class NewWrappedActivity extends AppCompatActivity {
             // Preparing data
             Map<String, Object> data = new HashMap<>();
             String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-            data.put("topTracks", topTracks);
-            data.put("topArtists", topArtists);
+//            data.put("topTracks", topTracks);
+//            data.put("topArtists", topArtists);
 
             // Dynamically retrieve the text from TextViews for songs and artists
             ArrayList<String> songs = new ArrayList<>();
@@ -180,7 +181,8 @@ public class NewWrappedActivity extends AppCompatActivity {
                     artists.add(artistTextView.getText().toString());
                 }
             }
-
+            Log.d("store", "storeDataInFirestore: " + songs);
+            Log.d("store", "storeDataInFirestore: " + artists);
             // Add the retrieved text to the data map
             data.put("topTracks", songs);
             data.put("topArtists", artists);
