@@ -87,7 +87,7 @@ public class HomeScreen extends AppCompatActivity {
     }
     private void fetchDataAndShowStory(View view) {
         showLoading();
-        String[] endpoints = new String[]{"me/top/tracks?limit=5", "me/top/artists?limit=5", "me/tracks?limit=5", "me/albums?limit=5"};
+        String[] endpoints = new String[]{"me/top/tracks?limit=5", "me/top/artists?limit=5"};
         ArrayList<String> results = new ArrayList<>();
 
         fetchSequentialData(endpoints, 0, results);

@@ -232,7 +232,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/spotify"
             android:paddingTop="15dp"
-            android:text="4"
+            android:text="Arijit Singh"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -244,7 +244,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/spotify"
             android:paddingTop="15dp"
-            android:text="5"
+            android:text="Jonas Brothers"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

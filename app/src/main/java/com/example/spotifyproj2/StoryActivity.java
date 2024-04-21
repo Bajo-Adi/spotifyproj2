@@ -511,22 +511,22 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
 
     private MediaPlayer mediaPlayer;
     private StoriesProgressView storiesProgressView;
-    private LinearLayout layout_fav_artist, layout_fav_track, layout_fav_albums;
+    private LinearLayout layout_fav_artist, layout_fav_track;
     private ImageView iv_background;
     private ImageView[] iv_artists = new ImageView[5];
     private ImageView[] iv_tracks = new ImageView[5];
-    private ImageView[] iv_albums = new ImageView[5];
+    //private ImageView[] iv_albums = new ImageView[5];
     private TextView[] tv_artists = new TextView[5];
     private TextView[] tv_track_names = new TextView[5];
     private TextView[] tv_track_artists = new TextView[5];
-    private TextView[] tv_album_names = new TextView[5];
+    //private TextView[] tv_album_names = new TextView[5];
     private Gson gson = new Gson();
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private WrappedData wrapped_info;
     private ArrayList<String> previewURL = new ArrayList<>();
-    private Boolean toBeSaved;
-    private final int[] resources = {R.drawable.blue_back, R.drawable.red_back, R.drawable.green_back};
+    private Boolean toBeSaved = false;
+    private final int[] resources = {R.drawable.red_back, R.drawable.green_back};
     private int content = 0; // Default start from first content
 
     @Override
@@ -545,7 +545,7 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
         storiesProgressView = findViewById(R.id.stories);
         layout_fav_artist = findViewById(R.id.layout_fav_artists);
         layout_fav_track = findViewById(R.id.layout_fav_tracks);
-        layout_fav_albums = findViewById(R.id.layout_fav_albums);
+        //layout_fav_albums = findViewById(R.id.layout_fav_albums);
         iv_background = findViewById(R.id.image);
         initArrays();  // Initialize ImageView and TextView arrays for artists, tracks, and albums
     }
@@ -557,8 +557,8 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
             iv_tracks[i] = findViewById(getResources().getIdentifier("iv_track_" + (i + 1), "id", getPackageName()));
             tv_track_names[i] = findViewById(getResources().getIdentifier("tv_track_name_" + (i + 1), "id", getPackageName()));
             tv_track_artists[i] = findViewById(getResources().getIdentifier("tv_track_artist_" + (i + 1), "id", getPackageName()));
-            iv_albums[i] = findViewById(getResources().getIdentifier("iv_album_" + (i + 1), "id", getPackageName()));
-            tv_album_names[i] = findViewById(getResources().getIdentifier("tv_album_name_" + (i + 1), "id", getPackageName()));
+            //iv_albums[i] = findViewById(getResources().getIdentifier("iv_album_" + (i + 1), "id", getPackageName()));
+            //tv_album_names[i] = findViewById(getResources().getIdentifier("tv_album_name_" + (i + 1), "id", getPackageName()));
         }
     }
 
@@ -573,6 +573,7 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
 //            finish();
 //        }
 //    }
+
 private void processIntentData() {
     Intent intent = getIntent();
     ArrayList<String> wrappedInfo = intent.getStringArrayListExtra("wrapped_info");
@@ -580,7 +581,9 @@ private void processIntentData() {
         // Assuming WrappedData can be reconstructed from a list of strings (e.g., JSON)
         // You need to have a method to convert these strings back into WrappedData objects
         try {
-            this.wrapped_info = convertStringsToWrappedData(wrappedInfo);
+            this.wrapped_info = new WrappedData();
+            convertStringsToWrappedData(wrappedInfo);
+            Log.d(TAG, "processIntentData: "+ wrappedInfo);
         } catch (Exception e) {
             Log.e(TAG, "Error parsing wrapped data: " + e.getMessage());
             finish();
@@ -591,20 +594,53 @@ private void processIntentData() {
     }
 }
 
+
     // Example method to convert string data to WrappedData
-    private WrappedData convertStringsToWrappedData(ArrayList<String> dataStrings) {
+    private void convertStringsToWrappedData(ArrayList<String> dataStrings) {
         // Here you need to implement conversion logic, potentially parsing JSON strings
         // This is just a placeholder showing the concept
-        Gson gson = new Gson();
-        WrappedData data = new WrappedData();
-        // Example of setting one field based on parsed data
-        if (!dataStrings.isEmpty()) {
-            data = gson.fromJson(dataStrings.get(0), WrappedData.class);
+        JsonParser jsonParser = new JsonParser();
+        JsonObject favoriteTracks = (JsonObject) jsonParser.parse(dataStrings.get(0));
+        Log.d(TAG, "onResponse: " + favoriteTracks);
+
+        JsonArray userDisplayFavouriteTracks = new JsonArray();
+
+        for (int i = 0; i < Math.min(5, favoriteTracks.getAsJsonArray("items").size()); i++) {
+            JsonObject object = new JsonObject();
+            object.add("name", favoriteTracks.getAsJsonArray("items").get(i).getAsJsonObject().get("name"));
+            object.add("artist", favoriteTracks.getAsJsonArray("items").get(i).getAsJsonObject().getAsJsonArray("artists").get(0).getAsJsonObject().get("name"));
+            object.add("url", favoriteTracks.getAsJsonArray("items").get(i).getAsJsonObject().getAsJsonObject("album").getAsJsonArray("images").get(0).getAsJsonObject().get("url"));
+            userDisplayFavouriteTracks.add(object);
         }
-        return data;
+
+        // save spotify ID for the most played track
+        previewURL.add(0, favoriteTracks.getAsJsonArray("items").get(1).getAsJsonObject().get("id").getAsString());
+        previewURL.add(1, favoriteTracks.getAsJsonArray("items").get(0).getAsJsonObject().get("id").getAsString());
+
+
+        //string_resources.add(new JSONObject().put("items", userDisplayFavouriteTracks));
+        wrapped_info.setFavoriteTracks(userDisplayFavouriteTracks);
+
+        JsonObject favoriteArtists = (JsonObject) jsonParser.parse(dataStrings.get(1));
+        //Log.d(TAG, "onResponse: " + favoriteArtists.getJSONArray("items").get(0));
+
+
+        JsonArray userDisplayFavouriteArtists = new JsonArray();
+
+        for (int i = 0; i < Math.min(5, favoriteArtists.getAsJsonArray("items").size()); i++) {
+            JsonObject object = new JsonObject();
+            object.add("name", favoriteArtists.getAsJsonArray("items").get(i).getAsJsonObject().get("name"));
+            object.add("url", favoriteArtists.getAsJsonArray("items").get(i).getAsJsonObject().getAsJsonArray("images").get(0).getAsJsonObject().get("url"));
+
+            userDisplayFavouriteArtists.add(object);
+        }
+
+        wrapped_info.setFavoriteArtists(userDisplayFavouriteArtists);
+
     }
 
     private void setupListeners() {
+        updateUIForStory();
         storiesProgressView.setStoriesCount(resources.length);
         storiesProgressView.setStoryDuration(5000L);
         storiesProgressView.setStoriesListener(this);
@@ -634,13 +670,12 @@ private void processIntentData() {
     private void displayUserInfo(int index) {
         switch (index) {
             case 0:
+                Log.d(TAG, "displayUserInfo: " + wrapped_info.getFavoriteArtists());
                 displayFavArtistInfo(wrapped_info.getFavoriteArtists());
                 break;
             case 1:
-                displayFavTrackInfo(wrapped_info.getPreviewTracks());
-                break;
-            case 2:
-                displayFavAlbumInfo(wrapped_info.getAlbums());
+                Log.d(TAG, "displayUserInfo: " + wrapped_info.getFavoriteTracks());
+                displayFavTrackInfo(wrapped_info.getFavoriteTracks());
                 break;
             default:
                 break;
@@ -648,64 +683,40 @@ private void processIntentData() {
     }
 
     private void displayFavArtistInfo(JsonArray artists) {
+        Log.d(TAG, "displayFavArtistInfo: " + artists);
+        layout_fav_artist.setVisibility(View.VISIBLE);
+        layout_fav_track.setVisibility(View.INVISIBLE);
         if (artists == null || artists.size() == 0) {
             Log.e(TAG, "Track data is null or empty");
             return; // Skip processing if data is null or empty
         }
         for (int i = 0; i < artists.size() && i < 5; i++) {
             JsonObject artist = artists.get(i).getAsJsonObject();
+            Log.d(TAG, "displayFavArtistInfo: " + artist);
             tv_artists[i].setText(artist.get("name").getAsString());
-            // Assuming each artist has an 'images' array and you want the first image URL
-            JsonArray images = artist.getAsJsonArray("images");
-            if (images != null && images.size() > 0) {
-                String imageUrl = images.get(0).getAsJsonObject().get("url").getAsString();
-                Picasso.get().load(imageUrl).into(iv_artists[i]);
-            }
+
+            Picasso.get().load(artist.get("url").getAsString()).into(iv_artists[i]);
         }
     }
 
 
     private void displayFavTrackInfo(JsonArray tracks) {
+        layout_fav_track.setVisibility(View.VISIBLE);
+        layout_fav_artist.setVisibility(View.INVISIBLE);
         if (tracks == null || tracks.size() == 0) {
             Log.e(TAG, "Track data is null or empty");
             return; // Skip processing if data is null or empty
         }
         for (int i = 0; i < tracks.size() && i < 5; i++) {
             JsonObject track = tracks.get(i).getAsJsonObject();
+            Log.d(TAG, "displayFavTrackInfo: " + track);
             tv_track_names[i].setText(track.get("name").getAsString());
-            JsonArray artists = track.getAsJsonArray("artists");
-            if (artists != null && artists.size() > 0) {
-                JsonObject firstArtist = artists.get(0).getAsJsonObject();
-                tv_track_artists[i].setText(firstArtist.get("name").getAsString());
-            }
-            JsonObject album = track.getAsJsonObject("album");
-            if (album != null) {
-                JsonArray images = album.getAsJsonArray("images");
-                if (images != null && images.size() > 0) {
-                    String imageUrl = images.get(0).getAsJsonObject().get("url").getAsString();
-                    Picasso.get().load(imageUrl).into(iv_tracks[i]);
-                }
+            tv_track_artists[i].setText(track.get("artist").getAsString());
+
+            Picasso.get().load(track.get("url").getAsString()).into(iv_tracks[i]);
             }
         }
-    }
 
-
-
-    private void displayFavAlbumInfo(JsonArray albums) {
-        if (albums == null || albums.size() == 0) {
-            Log.e(TAG, "Track data is null or empty");
-            return; // Skip processing if data is null or empty
-        }
-        for (int i = 0; i < albums.size() && i < 5; i++) {
-            JsonObject album = albums.get(i).getAsJsonObject();
-            tv_album_names[i].setText(album.get("name").getAsString());
-            JsonArray images = album.getAsJsonArray("images");
-            if (images != null && images.size() > 0) {
-                String imageUrl = images.get(0).getAsJsonObject().get("url").getAsString();
-                Picasso.get().load(imageUrl).into(iv_albums[i]);
-            }
-        }
-    }
 
 
     @Override
@@ -765,14 +776,30 @@ private void processIntentData() {
         }
 
         try {
-            String songUrl = previewURL.get(content);
-            mediaPlayer.setDataSource(this, Uri.parse(songUrl));
-            mediaPlayer.prepareAsync(); // Prepare asynchronously to not block the UI thread
+            ApiClient api  = new ApiClient(this);
+            api.fetchData("tracks/" + previewURL.get(content), new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                    Log.d(TAG, "onFailure: " + e.getMessage());
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    String responseData = response.body().string(); // Get the raw JSON response
+                    JsonObject jsonResponse = JsonParser.parseString(responseData).getAsJsonObject();
+                    String preview_URL = jsonResponse.get("preview_url").getAsString(); // Extract the preview URL
+                    // Do something with the preview URL, e.g., update the UI or store it f
+
+                    mediaPlayer.setDataSource(StoryActivity.this, Uri.parse(preview_URL));
+                    mediaPlayer.prepareAsync();
+                    mediaPlayer.setOnPreparedListener(MediaPlayer::start);
+                }
+            });
         } catch (Exception e) {
             Log.e(TAG, "Error setting data source", e);
         }
 
-        mediaPlayer.setOnPreparedListener(MediaPlayer::start);
+
     }
 
     @Override
