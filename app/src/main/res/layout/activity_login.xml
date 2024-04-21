@@ -32,7 +32,7 @@
             android:id="@+id/editTextUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="Email ID"
             android:textSize="16sp"
             android:paddingTop="8dp"
             android:fontFamily="@font/spotify"
@@ -52,7 +52,7 @@
                 android:id="@+id/etCreateUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your username"
+                android:hint="Enter your Email ID"
                 android:textColor="@color/white"
                 android:fontFamily="@font/spotify"/>
         </com.google.android.material.textfield.TextInputLayout>

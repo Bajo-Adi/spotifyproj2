@@ -42,7 +42,7 @@ public class DuoWrapped extends AppCompatActivity {
 //        duoArtists = findViewById(R.id.duoArtists);
 //        duoSongTogether = findViewById(R.id.duoSongTogether);
 //        duoSimilarityPercent = findViewById(R.id.duoSimilarityPercent);
-        tvResults = findViewById(R.id.tvResults);
+        //tvResults = findViewById(R.id.tvResults);
 
 
         buttonCompare.setOnClickListener(v -> {

@@ -2,8 +2,11 @@ package com.example.spotifyproj2;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +25,7 @@ public class PastWrappedActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
+    private Button Homebtn;
     private RecyclerView datesRecyclerView;
     private PW_RecyclerViewAdapter adapter;
 
@@ -33,7 +37,15 @@ public class PastWrappedActivity extends AppCompatActivity {
         // Initialize Firestore and FirebaseAuth instances
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-
+        Homebtn  = findViewById(R.id.home_button);
+        Homebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Replace MainActivity.class with the class of the activity you want to navigate to
+                Intent intent = new Intent(PastWrappedActivity.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
 
         // Setup the RecyclerView and its adapter
         datesRecyclerView = findViewById(R.id.datesContainer);

@@ -42,6 +42,7 @@ public class NewWrappedActivity extends AppCompatActivity {
     private List<String> topTracks = new ArrayList<>();
     private List<String> topArtists = new ArrayList<>();
     private Button btnDownloadPDF;
+    private Button Homebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +78,15 @@ public class NewWrappedActivity extends AppCompatActivity {
         else{
             Toast.makeText(NewWrappedActivity.this, "Please get a token first",Toast.LENGTH_SHORT).show();
         }
-
+        Homebtn  = findViewById(R.id.home_button);
+        Homebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Replace MainActivity.class with the class of the activity you want to navigate to
+                Intent intent = new Intent(NewWrappedActivity.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
         btnDownloadPDF = findViewById(R.id.download_button);
         btnDownloadPDF.setOnClickListener(v -> convertLayoutToPDF());
     }

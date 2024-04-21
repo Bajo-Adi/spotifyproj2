@@ -47,7 +47,7 @@
                 android:id="@+id/editTextFriendEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your name"
+                android:hint="Enter your friend's email id"
                 android:fontFamily="@font/spotify"
                 android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -65,17 +65,6 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/spotify"
             android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/tvResults"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:fontFamily="@font/spotify"
-            android:background="@android:color/black"
-            android:layout_marginTop="16dp"
-            android:text="Results will appear here..." />
 
     </LinearLayout>
 

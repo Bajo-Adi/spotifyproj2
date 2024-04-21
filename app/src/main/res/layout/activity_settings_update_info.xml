@@ -104,6 +104,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="Enter your new password"
             android:fontFamily="@font/spotify"
             android:textColor="@color/white"/>
@@ -149,13 +150,15 @@
         android:textColor="@color/white"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:paddingBottom="8dp"
         android:fontFamily="@font/spotify"
+        android:paddingBottom="8dp"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+        app:boxBackgroundColor="#F6F1F1"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        app:counterTextColor="@color/mtrl_textinput_default_box_stroke_color">
 
         <!-- Dropdown (Spinner) -->
         <Spinner
@@ -163,11 +166,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="#111211"
+            android:backgroundTint="@color/mtrl_textinput_default_box_stroke_color"
+            android:backgroundTintMode="add"
             android:entries="@array/dropdown_options"
             android:fontFamily="@font/spotify"
-            android:backgroundTint="@color/white"
-            android:popupBackground="@color/white"
-            />
+            android:popupBackground="@color/mtrl_textinput_default_box_stroke_color" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -214,25 +218,16 @@
 
     <Button
         android:id="@+id/home_button"
-        android:layout_width="115dp"
-        android:layout_height="wrap_content"
+        android:layout_width="113dp"
+        android:layout_height="37dp"
         android:backgroundTint="@color/dark_green"
         android:fontFamily="@font/spotify"
         android:text="Home"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/themeSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dark Mode"
-        android:checked="true"
-        android:textColor="@color/white"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/spotify"/>
 </LinearLayout>
