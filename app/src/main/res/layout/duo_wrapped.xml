@@ -1,0 +1,71 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/spotify_black">
+
+        <!-- Create Account Header -->
+
+        <!-- Email Input Field -->
+        <TextView
+            android:id="@+id/tvCreateAccountHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Friend's Email ID"
+            android:textColor="@color/dark_green"
+            android:textSize="24sp"
+            android:fontFamily="@font/spotify"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:paddingBottom="8dp"
+            android:fontFamily="@font/spotify"
+            android:textColorHint="@color/white"
+            app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextFriendEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your friend's email id"
+                android:fontFamily="@font/spotify"
+                android:textColor="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Create Account Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonDuoWrapped"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Make a new Duo Wrapped"
+            android:backgroundTint="@color/dark_green"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/spotify"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</ScrollView>

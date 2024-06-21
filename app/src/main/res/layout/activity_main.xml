@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/spotify_black"
+    tools:context=".MainActivity">
+
+    <!-- Welcome text -->
+
+    <TextView
+        android:id="@+id/welcome_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="92dp"
+        android:fontFamily="@font/spotify"
+        android:text="Welcome to Our 2340 Spotify App!"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Spotify logo image -->
+    <ImageView
+        android:id="@+id/spotify_logo_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text_view">
+
+        <TextView
+            android:id="@+id/token_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            tools:text="Token:"
+            android:textSize="16sp"/>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/code_text_view"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="8dp"-->
+        <!--            tools:text="Code:" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/code_btn"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="8dp"-->
+        <!--            android:text="Request Code" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/response_text_view"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="10sp"-->
+        <!--            tools:text="Line 1\nLine 2\nLine 3" />-->
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content">-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/profile_btn"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center_vertical"-->
+        <!--                android:layout_margin="8dp"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:text="Get User Profile" />-->
+        <!--        </LinearLayout>-->
+
+        <!-- Username and password text boxes -->
+        <!-- STILL NEED: Backend to connect this with local database and check if username and password exist-->
+        <!-- Then this will take us to the Home Page-->
+
+<!--        <Button-->
+<!--            android:id="@+id/token_btn"-->
+<!--            android:layout_width="147dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:backgroundTint="@color/dark_green"-->
+<!--            android:fontFamily="@font/spotify"-->
+<!--            android:text="Log Into Spotify"-->
+<!--            app:cornerRadius="15dp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/username_edit_text"-->
+<!--            android:layout_width="264dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="@drawable/round_edit_text"-->
+<!--            android:fontFamily="@font/spotify"-->
+<!--            android:hint=" Username"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/password_edit_text"-->
+<!--            android:layout_width="264dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:background="@drawable/round_edit_text"-->
+<!--            android:fontFamily="@font/spotify"-->
+<!--            android:hint=" Password"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="16sp" />-->
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cornerRadius="15dp"
+            android:backgroundTint="@color/dark_green"
+            android:fontFamily="@font/spotify"
+            android:text="Log Into App" />
+        <Button
+            android:id="@+id/new_account_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="15dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/dark_green"
+            android:fontFamily="@font/spotify"
+            android:text="Create New Account" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="105dp"
+        android:layout_height="287dp"
+        android:layout_marginTop="136dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/spotify_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+

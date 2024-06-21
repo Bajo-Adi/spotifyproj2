@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/spotify_black">
+
+    <!-- Settings Header -->
+    <TextView
+        android:id="@+id/tvSettingsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Settings"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/spotify"/>
+
+    <!-- Name Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:text="Edit Name"
+        android:textSize="16sp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <!-- Name Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your new name"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Username Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:text="Edit Email ID"
+        android:textSize="16sp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <!-- Username Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your new email ID"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:text="Edit Password"
+        android:textSize="16sp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <!-- Password Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Enter your new password"
+            android:fontFamily="@font/spotify"
+            android:textColor="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Re-type Password Input Field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Re-type New Password"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:paddingBottom="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRetypePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Re-type your new password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spotify"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Dropdown Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose an Option"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:fontFamily="@font/spotify"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spotify"
+        android:paddingBottom="8dp"
+        android:textColorHint="@color/white"
+        app:boxBackgroundColor="#F6F1F1"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        app:counterTextColor="@color/mtrl_textinput_default_box_stroke_color">
+
+        <!-- Dropdown (Spinner) -->
+        <Spinner
+            android:id="@+id/spinnerOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#111211"
+            android:backgroundTint="@color/mtrl_textinput_default_box_stroke_color"
+            android:backgroundTintMode="add"
+            android:entries="@array/dropdown_options"
+            android:fontFamily="@font/spotify"
+            android:popupBackground="@color/mtrl_textinput_default_box_stroke_color" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <!-- Action Buttons Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:paddingTop="24dp">
+
+        <!-- Submit Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/dark_green"
+            android:fontFamily="@font/spotify"
+            android:text="Submit"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" /> <!-- Increased margin for spacing -->
+
+        <!-- Delete Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/dark_green"
+            android:fontFamily="@font/spotify"
+            android:text="Delete"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/> <!-- Increased margin for spacing -->
+    </LinearLayout>
+
+    <!-- Theme Toggle Switch -->
+
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="113dp"
+        android:layout_height="37dp"
+        android:backgroundTint="@color/dark_green"
+        android:fontFamily="@font/spotify"
+        android:text="Home"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</LinearLayout>
