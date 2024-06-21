@@ -13,12 +13,12 @@
 
 Meet our team:
 
-- **Veer Kejriwal** - [![GitHub](https://img.shields.io/badge/GitHub-FarzadAshfak-blue?logo=github&style=flat-square)](https://github.com/farzadashfak)
-- **Huzaifa Pardawala** - [![GitHub](https://img.shields.io/badge/GitHub-HuzaifahP7-blue?logo=github&style=flat-square)](https://github.com/huzaifahp7)
+- **Veer Kejriwal** - [![GitHub](https://img.shields.io/badge/GitHub-Veerkejriwal-blue?logo=github&style=flat-square)](https://github.com/farzadashfak)
+- **Huzaifa Pardawala** - [![GitHub](https://img.shields.io/badge/GitHub-Huzaifahp7-blue?logo=github&style=flat-square)](https://github.com/huzaifahp7)
 - **Aditya Bajoria** - [![GitHub](https://img.shields.io/badge/GitHub-BajoAdi-blue?logo=github&style=flat-square)](https://github.com/Bajo-Adi)
-- **Jake Nardomarino** - [![GitHub](https://img.shields.io/badge/GitHub-BajoAdi-blue?logo=github&style=flat-square)](https://github.com/jakenardomarino)
-- **Bella Carter** - [![GitHub](https://img.shields.io/badge/GitHub-BajoAdi-blue?logo=github&style=flat-square)](https://github.com/bellacarter)
-- **Betre Tezera** - [![GitHub](https://img.shields.io/badge/GitHub-BajoAdi-blue?logo=github&style=flat-square)](https://github.com/IBetreI)
+- **Jake Nardomarino** - [![GitHub](https://img.shields.io/badge/GitHub-Jake-blue?logo=github&style=flat-square)](https://github.com/jakenardomarino)
+- **Bella Carter** - [![GitHub](https://img.shields.io/badge/GitHub-Bella-blue?logo=github&style=flat-square)](https://github.com/bellacarter)
+- **Betre Tezera** - [![GitHub](https://img.shields.io/badge/GitHub-Betre-blue?logo=github&style=flat-square)](https://github.com/IBetreI)
 
 Feel free to check out our profiles and connect with us!
 
