@@ -1,7 +1,3 @@
-# Spotify Wrapped
-
-
-
 <div align="center">
   <br>
   <h1>Spotify Wrapped Project 🪙</h1>
