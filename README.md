@@ -1,7 +1,7 @@
 <div align="center">
   <br>
   <h1>Spotify Wrapped Project 🪙</h1>
-  <strong>Guiding your financial future, one loan at a time!</strong>
+  <strong>Spotify Wrapped wrapper to enhnace your Spotify Wrapped experience!</strong>
 </div>
 
 <p align="center">
