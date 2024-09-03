@@ -13,7 +13,7 @@
 
 Meet our team:
 
-- **Veer Kejriwal** - [![GitHub](https://img.shields.io/badge/GitHub-Veerkejriwal-blue?logo=github&style=flat-square)](https://github.com/farzadashfak)
+- **Veer Kejriwal** - [![GitHub](https://img.shields.io/badge/GitHub-Veerkejriwal-blue?logo=github&style=flat-square)](https://github.com/veer1104)
 - **Huzaifa Pardawala** - [![GitHub](https://img.shields.io/badge/GitHub-Huzaifahp7-blue?logo=github&style=flat-square)](https://github.com/huzaifahp7)
 - **Aditya Bajoria** - [![GitHub](https://img.shields.io/badge/GitHub-BajoAdi-blue?logo=github&style=flat-square)](https://github.com/Bajo-Adi)
 - **Jake Nardomarino** - [![GitHub](https://img.shields.io/badge/GitHub-Jake-blue?logo=github&style=flat-square)](https://github.com/jakenardomarino)
